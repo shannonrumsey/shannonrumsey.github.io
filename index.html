@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<nav class = "navbar navbar-expand-lg fixed-top navbarScroll">
+<nav class = "navbar navbar-expand-lg fixed-top navbarScroll navbar-link">
   <div class = "container">
     <a class = "navbar-brand" href = "#">Shannon Rumsey</a>
     <button class = "navbar-toggler" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbarSupportedContent" aria-controls = "navbarSupportedContent" aria-expanded = "false" aria-label = "Toggle navigation">
@@ -31,48 +31,98 @@
         <li class="nav-item">
           <a class="nav-link" href="#portfolio">Portfolio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
       </ul>
     </div>
   </div>
 </nav>
 
- <!-- main banner -->
     <section class="bgimage" id="home">
-        <div class="container-fluid">
-            <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-                <h2 class="hero_title">My name is Shannon Rumsey</h2>
-                <p class="hero_desc">I am a Data Scientist in Santa Barbara</p>
-            </div>
-            </div>
+      <div class = "container-fluid">
+        <div class = "row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+            <h2 class="hero_title">Shannon Rumsey is a Data Scientist in the San Francisco Bay Area</h2>
+          </div>
         </div>
+      </div>
     </section>
      <!-- About -->
      <section id = "about">
        <div class="container mt-4 pt-4">
-            <h1 class="text-center">About Me</h1>
             <div class="row mt-4">
               <div class="col-lg-4">
-                    <img src="about_me.jpg" class= "imageAboutPage" alt="">
+                  <img src="about_me.jpg" class= "imageAboutPage" alt="">
                 </div>
                 <div class="col-lg-8">
-                    <p> I am a hard worker and fast learner with excellent analytical skills. I am Looking to gain experience and be challenged in a setting that requires critical thinking and attention to detail. I am also very comfortable using my knowledge of mathematics, statistics, and data science to conduct research and solve problems in a work environment.
-                    </p>
+                    <p>As a data scientist, Shannon has a strong background in statistical analysis and machine learning. She is skilled in using a variety of programming languages, including Python and R, and has experience working with and cleaning large datasets.</p>
+                    <p>One standout project that Shannon executed was the implementation of a machine learning algorithm to classify the city of a restaurant based on Yelp reviewer information. The algorithm, which was a Random Forest model, resulted in an accuracy of around 85%.
+Shannon was able to highlight the importance of location for prospective and current business owners in Santa Barbara county, potentially changing the way that owners maintain their business.</p>
+                    <p>Overall, Shannon is a highly skilled data scientist and statistician with a history of meticulous and innovative work.</p>
                     <div class="row mt-3">
                       <div class="col-md-6">
-                        <ul>
-                          <li>Name: Shannon Rumsey</li>
-                          <li>Age: 21</li>
-                          <li>Occupation: Data Scientist/Student</li>
-                        </ul>
                       </div>
                   </div>
               </div>
      </section>
-    
+     <!-- Portfolio Section -->
+     <section id = "portfolio">
+       <div class = "container mt-1">
+         <h1 class = "text-center">Portfolio</h1>
+         <div class = "row">
+           <div class = "col-lg-4 mt-4">
+             <div class = "card">
+               <img class="card-img-top" src="portfolio_1.jpg" alt="Card image" style="width:100%">
+               <div class = "card-body">
+                 <h4 class = "card-title">Yelp Classification Modeling</h4>
+                 <p class = "card-text">Shannon aimed to determine whether the city of a business could be classified or predicted based on review data. To do this, she collected a large dataset of reviews for businesses in different cities and used machine learning techniques to build and compare the performance of four different models.</p>
+                 <div class="text-center">
+                   <a href="https://github.com/shannonrumsey/PSTAT-131-Final-Project" class="btn btn-success">Link</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+           
+           <div class = "col-lg-4 mt-4">
+             <div class = "card">
+               <img class="card-img-top" src="portfolio_2.jpg" alt="Card image" style="width:100%">
+               <div class = "card-body">
+                 <h4 class = "card-title">To fund or not to fund: UCSB’s competitive research environment</h4>
+                 <p class = "card-text">Shannon and her teammates wrote an article for the Daily Nexus, the student newspaper at the University of California, Santa Barbara, about department funding. In this project, Shannon used her research and writing skills to investigate the allocation of funds at the university and how it impacted various departments.</p>
+                 <div class="text-center">
+                   <a href="https://dailynexus.com/2022-11-17/to-fund-or-not-to-fund-ucsbs-competitive-research-environment/" class="btn btn-success">Link</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+           
+         </div>
+       </div>
+       <br>
+     </section>
+     <!-- footer -->
+     <footer id = "footer">
+       <div class = "container-fluid">
+         <!-- icons -->
+         <div class = "social-icons mt-2">
+           <a href = "https://www.linkedin.com/in/shannon-r-096b76197/">
+             <i class = "fab fa-linkedin"></i></a>
+           <a href="mailto:shannonalmyrumsey@gmail.com">
+             <i class="fa-solid fa-envelope"></i>
+             </a>
+         </div>
+       </div>
+     </footer>
+       
+     </section>
+
+     
+     
+
+
+     <!-- Load javascript -->
+     <script src = "script.js"></script>
+     
+
+
     
 
 </body>
