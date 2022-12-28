@@ -1,129 +1,123 @@
 <!DOCTYPE html>
-<html lang = "en-us"> 
+<html lang= "en-us"> 
 <head>
   <title>Portfolio</title>
-  <meta charset = "UTF-8">
-  <meta name = "viewport" content = "width=device-width, initial-scale=1">
+  <meta charset= "UTF-8">
+  <meta name= "viewport" content= "width=device-width, initial-scale=1">
   <!-- link the css file -->
-  <link rel="stylesheet" href="style.css">
+  <link rel= "stylesheet" href= "style.css">
   <!-- link the bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel= "stylesheet">
+  <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- font awesome -->
-  <script src="https://kit.fontawesome.com/3bf2dcfe99.js" crossorigin="anonymous"></script>
+  <script src= "https://kit.fontawesome.com/3bf2dcfe99.js" crossorigin= "anonymous"></script>
 </head>
 
 <body>
-<nav class = "navbar navbar-expand-lg fixed-top navbarScroll navbar-link">
-  <div class = "container">
-    <a class = "navbar-brand" href = "#">Shannon Rumsey</a>
-    <button class = "navbar-toggler" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbarSupportedContent" aria-controls = "navbarSupportedContent" aria-expanded = "false" aria-label = "Toggle navigation">
-      <span class = "navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-        </li>
-      </ul>
+  <!-- navbar -->
+  <nav class= "navbar navbar-expand-lg fixed-top navbarScroll navbar-link">
+    <div class= "container">
+      <a class= "navbar-brand" href= "#">Shannon Rumsey</a>
+      <button class= "navbar-toggler" type= "button" data-bs-toggle= "collapse" data-bs-target= "#navbarSupportedContent" aria-controls= "navbarSupportedContent" aria-expanded= "false" aria-label= "Toggle navigation">
+        <span class= "navbar-toggler-icon"></span>
+      </button>
+      <div class= "collapse navbar-collapse" id= "navbarSupportedContent">
+        <ul class= "navbar-nav ms-auto">
+          <li class= "nav-item active">
+            <a class= "nav-link" href= "#home">Home</a>
+          </li>
+          <li class= "nav-item">
+            <a class= "nav-link" href= "#about">About</a>
+          </li>
+          <li class= "nav-item">
+            <a class= "nav-link" href= "#portfolio">Portfolio</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-    <section class="bgimage" id="home">
-      <div class = "container-fluid">
-        <div class = "row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-            <h2 class="hero_title">Shannon Rumsey is a Data Scientist in the San Francisco Bay Area</h2>
+    <section class= "bgimage" id= "home">
+      <div class= "container-fluid">
+        <div class= "row">
+          <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
+            <h2 class= "hero_title">Shannon Rumsey is a Data Scientist in the San Francisco Bay Area</h2>
           </div>
         </div>
       </div>
     </section>
-     <!-- About -->
-     <section id = "about">
-       <div class="container mt-4 pt-4">
-            <div class="row mt-4">
-              <div class="col-lg-4">
-                  <img src="about_me.jpg" class= "imageAboutPage" alt="">
-                </div>
-                <div class="col-lg-8">
-                    <p>As a data scientist, Shannon has a strong background in statistical analysis and machine learning. She is skilled in using a variety of programming languages, including Python and R, and has experience working with and cleaning large datasets.</p>
-                    <p>One standout project that Shannon executed was the implementation of a machine learning algorithm to classify the city of a restaurant based on Yelp reviewer information. The algorithm, which was a Random Forest model, resulted in an accuracy of around 85%.
-Shannon was able to highlight the importance of location for prospective and current business owners in Santa Barbara county, potentially changing the way that owners maintain their business.</p>
-                    <p>Overall, Shannon is a highly skilled data scientist and statistician with a history of meticulous and innovative work.</p>
-                    <div class="row mt-3">
-                      <div class="col-md-6">
-                      </div>
-                  </div>
-              </div>
+    
+     <!-- About Me-->
+     <section id= "about">
+       <div class= "container text-center">
+         <div class= "text-center">
+           <img src= "about_me.jpg" class= "imageAboutPage" alt= "">
+         </div>
+         <div class= "col-7 aboutMe">
+           <p>About Me<p>
+         </div>
+         <div class= "col-9 aboutMeText">
+           <p>As a data scientist, I have a strong background in statistical analysis and machine learning.
+                    I am skilled in using a variety of programming languages, including Python and R, and have experience working with and wrangling large datasets.</p>
+                    <p>One standout project of mine was the implementation of a machine learning algorithm to classify the city of a restaurant based on Yelp reviewer information. The algorithm, which was a Random Forest model, resulted in an accuracy of around 85%. I was able to highlight the importance of location for prospective and current business owners in Santa Barbara county, potentially changing the way that owners maintain their business.</p>
+                    <p>Overall, I am a highly skilled data scientist and statistician with a history of meticulous and innovative work.</p>
+         </div>
+       </div>
      </section>
+     
      <!-- Portfolio Section -->
-     <section id = "portfolio">
-       <div class = "container mt-1">
-         <h1 class = "text-center">Portfolio</h1>
-         <div class = "row">
-           <div class = "col-lg-4 mt-4">
-             <div class = "card">
-               <img class="card-img-top" src="portfolio_1.jpg" alt="Card image" style="width:100%">
-               <div class = "card-body">
-                 <h4 class = "card-title">Yelp Classification Modeling</h4>
-                 <p class = "card-text">Shannon aimed to determine whether the city of a business could be classified or predicted based on review data. To do this, she collected a large dataset of reviews for businesses in different cities and used machine learning techniques to build and compare the performance of four different models.</p>
-                 <div class="text-center">
-                   <a href="https://github.com/shannonrumsey/PSTAT-131-Final-Project" class="btn btn-success">Link</a>
+     <section id= "portfolio">
+       <div class= "container mt-1">
+         <h2 class= "text-center">Some of My Work</h2>
+         <div class= "row">
+           <div class= "col-lg-4 mt-4">
+             <div class= "card">
+               <img class= "card-img-top" src= "portfolio_1.jpg" alt= "Card image" style= "width:100%">
+               <div class= "card-body">
+                 <h4 class= "card-title">Yelp Classification Modeling</h4>
+                 <p class= "card-text">I aimed to determine whether the city of a business could be classified or predicted based on review data. To do this, I collected a large dataset of reviews for businesses in different cities and used machine learning techniques to build and compare the performance of four different models.</p>
+                 <div class= "text-center">
+                   <a href= "https://github.com/shannonrumsey/
+Yelp-Classification-Modeling" class= "btn btn-success">Link</a>
                  </div>
                </div>
              </div>
            </div>
-           
-           <div class = "col-lg-4 mt-4">
-             <div class = "card">
-               <img class="card-img-top" src="portfolio_2.jpg" alt="Card image" style="width:100%">
-               <div class = "card-body">
-                 <h4 class = "card-title">To fund or not to fund: UCSB’s competitive research environment</h4>
-                 <p class = "card-text">Shannon and her teammates wrote an article for the Daily Nexus, the student newspaper at the University of California, Santa Barbara, about department funding. In this project, Shannon used her research and writing skills to investigate the allocation of funds at the university and how it impacted various departments.</p>
-                 <div class="text-center">
-                   <a href="https://dailynexus.com/2022-11-17/to-fund-or-not-to-fund-ucsbs-competitive-research-environment/" class="btn btn-success">Link</a>
+           <div class= "col-lg-4 mt-4">
+             <div class= "card">
+               <img class= "card-img-top" src= "portfolio_2.jpg" alt= "Card image" style= "width:100%">
+               <div class= "card-body">
+                 <h4 class= "card-title">To fund or not to fund: UCSB’s competitive research environment</h4>
+                 <p class= "card-text">My teammates and I wrote an article for the Daily Nexus, the student newspaper at the University of California, Santa Barbara, about department funding. In this project, I used my research and writing skills to investigate the allocation of funds at the university and how it impacted various departments.</p>
+                 <div class= "text-center">
+                   <a href= "https://dailynexus.com/2022-11-17/to-fund-or-not-to-fund-ucsbs-competitive-research-environment/" class= "btn btn-success">Link</a>
                  </div>
                </div>
              </div>
            </div>
-           
          </div>
        </div>
        <br>
      </section>
+     
      <!-- footer -->
-     <footer id = "footer">
-       <div class = "container-fluid">
+     <footer id= "footer">
+       <div class= "container-fluid">
          <!-- icons -->
-         <div class = "social-icons mt-2">
-           <a href = "https://www.linkedin.com/in/shannon-r-096b76197/">
-             <i class = "fab fa-linkedin"></i></a>
-           <a href="mailto:shannonalmyrumsey@gmail.com">
-             <i class="fa-solid fa-envelope"></i>
+         <div class= "social-icons mt-2">
+           <a href= "https://www.linkedin.com/in/shannon-r-096b76197/">
+             <i class= "fab fa-linkedin"></i></a>
+           <a href= "mailto:shannonalmyrumsey@gmail.com">
+             <i class= "fa-solid fa-envelope"></i>
              </a>
          </div>
        </div>
      </footer>
-       
      </section>
 
-     
-     
-
-
      <!-- Load javascript -->
-     <script src = "script.js"></script>
-     
+     <script src= "script.js"></script>
 
-
-    
 
 </body>
 </html>

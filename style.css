@@ -1,11 +1,49 @@
+/* Whole documnt formatting */
+body {
+background-color: #f2edef !important;
+}
 
+#about, #portfolio, #contact {
+    margin-top: 3rem;
+    padding-top: 3rem;
+}
 
+.container {
+  font-family: "Garamond", serif;
+}
+
+/* Navbar */
 .navbar-color {
   color: black;
 }
 
+.navbar-link {
+    color: black;
+    font-size: 1rem;
+    font-family: "Garamond", serif;
+}
+
+.navbar-brand {
+    color: black;
+    font-size: 2.8rem;
+    font-family: "Garamond", serif;
+}
+
+.navbar a {
+  color: black;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+.navbarScroll.navbarLight {
+    background-color: #d6c2ca;
+}
+
+/*About Me section*/
 .bgimage {
-    height:50vh;
+    height:48vh;
     background-size:cover;
     position:relative;
 }
@@ -21,60 +59,35 @@
 }
 
 .hero_title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
 }
 
-body {
-background-color: #f2edef !important;
-}
-
-#about, #portfolio, #contact {
-    margin-top: 3rem;
-    padding-top: 3rem;
-}
-
-/* about section image css */
 .imageAboutPage {
-    width: 100%;
+  background-size: contain;
+  width: 700px;
+  height: auto;
+  text-align:center;
 }
 
-.container {
-  font-family: "Garamond", serif;
+.aboutMe {
+  margin-top: 140px;
+  text-align:left;
+  font-size: 1.1rem;
 }
 
-.navbar-link {
-    color: black;
-    font-size: 1rem;
-    font-family: "Garamond", serif;
+.aboutMeText {
+  margin-top:-47px;
+  margin-left: 200px;
+  text-align: right;
+  font-size: 1.5rem;
 }
 
-.navbar-brand {
-    color: black;
-    font-size: 2.5rem;
-    font-family: "Garamond", serif;
-}
-
-.navbar a {
-  color: black;
-}
-
-.navbar a:hover {
-  color: black;
-}
-
-/* display background color black on navbar scroll */
-.navbarScroll.navbarLight {
-    background-color: white;
-    
-}
-
-
+/* Portfolio section */
 .card-title {
     text-align: center;
     font-family: "Garamond", serif;
 }
 
-/* social media icons styling */
 .social-icons {
     font-size: 38px;
     cursor: pointer;
@@ -91,9 +104,11 @@ background-color: #f2edef !important;
 
 .btn-success {
   background-color: #d4433b !important;
+  outline-color: #d4433b !important;
 }
 
-/* footer styling */
+
+/* Footer */
 #footer {
     background-color: #f2edef;
     text-align: center;
