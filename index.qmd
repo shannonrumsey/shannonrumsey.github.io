@@ -10,4 +10,4 @@ about:
       href: https://www.linkedin.com/in/shannon-rumsey/
 ---
 
-Hi! my name is Shannon Rumsey and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty and passion is computational linguistics and natural language processing. You can find more about me professionally and personally on the about me page.
+My name is Shannon and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty is in computational linguistics and natural language processing.

@@ -1,11 +1,9 @@
 ---
 title: "vitae"
-image: "about_me.jpg"
+image: "conference.png"
 about:
   template: jolla
 ---
-
-> I believe that data science is similar to the art of painting, both use different forms of expression to communicate an idea to a broad audience. As a statistician, my duty is to prioritize open-communication and storytelling to ensure that statistics and machine learning are accessible to everyone, just like painting. My beliefs allow me to be a diligent worker who has a passion for building connections, both interpersonal and mathematically, and helping to create a world that everyone is apart of and can feel happy about.
 
 <br>
 
@@ -13,7 +11,7 @@ about:
 
 #### Languages
 
-R, Python, SQL, HTML, CSS, Excel, SAS
+R, Python, SQL, HTML, SAS
 
 #### Machine Learning
 
@@ -43,28 +41,38 @@ University of California, Santa Barbara \| B.S. in Statistics and Data Science, 
 
 Santa Barbara City College \| A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)
 
-### Experience
+### Projects
 
 #### Undergraduate Research Assistant
 
 UC Santa Barbara (2023 - Present)
 
-Conducting research alongside a professor, PhD candidate, and fellow undergraduate student with the goal of validating and building upon 3+ prior linguistic research papers proving the Functional Load Hypothesis. The research is conducted at the CPLS Lab at the University of California, Santa Barbara.
+As an undergraduate research assistant, I worked to validate the Functional Load Hypothesis – the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on hand-picked and preprocessed corpora, we are able to quantify the extent to which words differing by one sound, or minimal pairs, may be confused with each other in context and compared to a simple count of  words. The goal of this comparison is to understand if the rate of confusibility is dependent on the particular sound the minimal pairs share.
 
 #### Researcher
 
 Evidation Health, Inc. (2023)
 
-Spokesperson and meeting-organizer for a team of five students, two industry sponsors, and an academic adviser. Learned methods for working with time-series health data to establish trends as well as determine how to handle missing data with the use of data imputation techniques in R and\
-Python. Developed two innovative models to define respiratory illness case onset and recovery period.
+A collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using remotely collected data such as an individual’s resting heart rate and caloric expenditure, we predicted the outcome of the participant’s RVI lab test result. The resulting boosted tree model observed deviations from individual participant baselines, indicating the occurrence or absence of RVI without the need for a lab test.
 
-#### Central Coast Data Science Fellow
+[Abstract](evidation_poster_abstract.pdf){.btn .btn-secondary role="button"}
 
-National Science Foundation (2022-2023)
+#### Independent Researcher
 
-As a fellow, my goal was to advance data science education and understanding in the community. I was responsible for outreach efforts to promote data science courses and events, as well as engage with community members to raise awareness about the importance of data science in today's world. I produced two flyers to promote a course and a project showcase. I worked alongside my professor to help build a course website utilizing quarto and R.
+UC Santa Barbara (2023)
+
+Using synonym replacement and text summarization, we explore
+the methodology of medical transcription simplification and what
+it means for text to be “simplified”. The synonym simplification process utilizes BioBERT embeddings to identify complex terms and replace them with simpler definitions. The resulting text is then summarized using a BERT2BERT model fine-tuned on a CNN/Dailymail
+dataset. From the results, we use a standard method for generating
+reading levels, the Flesch reading ease score test, and find an overall
+increase in readability after applying our models
+
+[Abstract](LING_111_Project.pdf){.btn .btn-secondary role="button"}
 
 <br>
+
+
 
 ### Awards
 

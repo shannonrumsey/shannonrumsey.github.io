@@ -13,7 +13,6 @@ website:
     right:
       - href: index.qmd
         text: home
-      - about.qmd
       - vitae.qmd
       - href: Resume.pdf
         text: resume

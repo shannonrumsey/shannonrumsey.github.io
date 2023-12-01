@@ -83,16 +83,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">about me</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./vitae.html" rel="" target="" aria-current="page">
  <span class="menu-text">vitae</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html" rel="" target="">
- <span class="menu-text">projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Resume.pdf" rel="" target="">
@@ -127,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <div class="quarto-about-jolla">
-  <img src="about_me.jpg" class="about-image
+  <img src="conference.png" class="about-image
   round " style="height: 15em; width: 15em;">
  <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -136,15 +128,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<blockquote class="blockquote">
-<p>I believe that data science is similar to the art of painting, both use different forms of expression to communicate an idea to a broad audience. As a statistician, my duty is to prioritize open-communication and storytelling to ensure that statistics and machine learning are accessible to everyone, just like painting. My beliefs allow me to be a diligent worker who has a passion for building connections, both interpersonal and mathematically, and helping to create a world that everyone is apart of and can feel happy about.</p>
-</blockquote>
 <p><br></p>
 <section id="technical-skills" class="level3">
 <h3 data-anchor-id="technical-skills">Technical Skills</h3>
 <section id="languages" class="level4">
 <h4 data-anchor-id="languages">Languages</h4>
-<p>R, Python, SQL, HTML, CSS, Excel, SAS</p>
+<p>R, Python, SQL, HTML, SAS</p>
 </section>
 <section id="machine-learning" class="level4">
 <h4 data-anchor-id="machine-learning">Machine Learning</h4>
@@ -167,23 +156,24 @@ ul.task-list li input[type="checkbox"] {
 <p>University of California, Santa Barbara | B.S. in Statistics and Data Science, GPA: 3.5 (2021 - 2023)</p>
 <p>Santa Barbara City College | A.A. in Liberal Arts-Science: Science &amp; Math, GPA: 3.86 (2019 - 2021)</p>
 </section>
-<section id="experience" class="level3">
-<h3 data-anchor-id="experience">Experience</h3>
+<section id="projects" class="level3">
+<h3 data-anchor-id="projects">Projects</h3>
 <section id="undergraduate-research-assistant" class="level4">
 <h4 data-anchor-id="undergraduate-research-assistant">Undergraduate Research Assistant</h4>
 <p>UC Santa Barbara (2023 - Present)</p>
-<p>Conducting research alongside a professor, PhD candidate, and fellow undergraduate student with the goal of validating and building upon 3+ prior linguistic research papers proving the Functional Load Hypothesis. The research is conducted at the CPLS Lab at the University of California, Santa Barbara.</p>
+<p>As an undergraduate research assistant, I worked to validate the Functional Load Hypothesis – the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on hand-picked and preprocessed corpora, we are able to quantify the extent to which words differing by one sound, or minimal pairs, may be confused with each other in context and compared to a simple count of words. The goal of this comparison is to understand if the rate of confusibility is dependent on the particular sound the minimal pairs share.</p>
 </section>
 <section id="researcher" class="level4">
 <h4 data-anchor-id="researcher">Researcher</h4>
 <p>Evidation Health, Inc.&nbsp;(2023)</p>
-<p>Spokesperson and meeting-organizer for a team of five students, two industry sponsors, and an academic adviser. Learned methods for working with time-series health data to establish trends as well as determine how to handle missing data with the use of data imputation techniques in R and<br>
-Python. Developed two innovative models to define respiratory illness case onset and recovery period.</p>
+<p>A collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using remotely collected data such as an individual’s resting heart rate and caloric expenditure, we predicted the outcome of the participant’s RVI lab test result. The resulting boosted tree model observed deviations from individual participant baselines, indicating the occurrence or absence of RVI without the need for a lab test.</p>
+<p><a href="evidation_poster_abstract.pdf" class="btn btn-secondary" role="button">Abstract</a></p>
 </section>
-<section id="central-coast-data-science-fellow" class="level4">
-<h4 data-anchor-id="central-coast-data-science-fellow">Central Coast Data Science Fellow</h4>
-<p>National Science Foundation (2022-2023)</p>
-<p>As a fellow, my goal was to advance data science education and understanding in the community. I was responsible for outreach efforts to promote data science courses and events, as well as engage with community members to raise awareness about the importance of data science in today’s world. I produced two flyers to promote a course and a project showcase. I worked alongside my professor to help build a course website utilizing quarto and R.</p>
+<section id="independent-researcher" class="level4">
+<h4 data-anchor-id="independent-researcher">Independent Researcher</h4>
+<p>UC Santa Barbara (2023)</p>
+<p>Using synonym replacement and text summarization, we explore the methodology of medical transcription simplification and what it means for text to be “simplified”. The synonym simplification process utilizes BioBERT embeddings to identify complex terms and replace them with simpler definitions. The resulting text is then summarized using a BERT2BERT model fine-tuned on a CNN/Dailymail dataset. From the results, we use a standard method for generating reading levels, the Flesch reading ease score test, and find an overall increase in readability after applying our models</p>
+<p><a href="LING_111_Project.pdf" class="btn btn-secondary" role="button">Abstract</a></p>
 <p><br></p>
 </section>
 </section>
