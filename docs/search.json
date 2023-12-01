@@ -7,66 +7,10 @@
     "text": "My name is Shannon and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty is in computational linguistics and natural language processing."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "about me",
-    "section": "",
-    "text": "During my undergraduate studies at UCSB, I had the opportunity to work on my first research paper titled Identifying Optimal Case Onset Points for Early Detection of Influenza-like Illness. For this project, I worked alongside a group of 4 and a data science team at Evidation Health Inc. for 6 months. At the end, I participated in two project showcases, one on campus and another at the KDD 2023 conference in Long Beach.\n\n\n\n\n\n\n\n\nKDD 2023 conference in Long Beach.\n\nWhile working on my first research project, I was sponsored by the NSF to promote the field of data science within my community. As part of my job, I curated numerous event posters and aided a professor with one of their course websites.\nCurrently, I am in my last quarter and in the transition period of applying to graduate school. While tying up loose ends, I am pursuing my interests in the interdisciplinary field of Linguistics and Statistics, though many know this as “natural language processing”. Current research at the CPLS lab includes the exploration and validation of the Functional Load Hypothesis and it’s relation to predicting phonological mergers.\n\nThe Functional Load Hypothesis (Jakobson, 1931; Martinet, 1952) states that sounds distinguishing more words (high functional load) are less likely to disappear or merge with other sounds during sound change (UCLA)"
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "projects",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "resume",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "Shannon Rumsey",
-    "section": "Education",
-    "text": "Education\nUC Sa"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "Shannon Rumsey",
-    "section": "Experience",
-    "text": "Experience"
-  },
-  {
     "objectID": "vitae.html",
     "href": "vitae.html",
     "title": "vitae",
     "section": "",
     "text": "Technical Skills\n\nLanguages\nR, Python, SQL, HTML, SAS\n\n\nMachine Learning\nTree Algorithms: XGBoost, Random Forests, Decision Trees\nRegression: Logistic Regression, Linear Regression, Lasso Regression, Ridge Regression\nClustering: K-Nearest Neighbors\nDeep Learning: Neural Networks, Recurrent Neural Networks, Encoder Models, Decoder Models, Encoder-Decoder Models\n\n\nComputational Linguistics\nHidden Markov Models, Noisy Channel models, Large Language Models (Bert and GPT)\nWorking with word vectors and cosine similarity to achieve similarity scores\nObserving semantic relationships\nRecognizing trends within text data in order to extrapolate predictions\n\n\n\n\nEducation\nUniversity of California, Santa Barbara | B.S. in Statistics and Data Science, GPA: 3.5 (2021 - 2023)\nSanta Barbara City College | A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)\n\n\nProjects\n\nUndergraduate Research Assistant\nUC Santa Barbara (2023 - Present)\nAs an undergraduate research assistant, I worked to validate the Functional Load Hypothesis – the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on hand-picked and preprocessed corpora, we are able to quantify the extent to which words differing by one sound, or minimal pairs, may be confused with each other in context and compared to a simple count of words. The goal of this comparison is to understand if the rate of confusibility is dependent on the particular sound the minimal pairs share.\n\n\nResearcher\nEvidation Health, Inc. (2023)\nA collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using remotely collected data such as an individual’s resting heart rate and caloric expenditure, we predicted the outcome of the participant’s RVI lab test result. The resulting boosted tree model observed deviations from individual participant baselines, indicating the occurrence or absence of RVI without the need for a lab test.\nAbstract\n\n\nIndependent Researcher\nUC Santa Barbara (2023)\nUsing synonym replacement and text summarization, we explore the methodology of medical transcription simplification and what it means for text to be “simplified”. The synonym simplification process utilizes BioBERT embeddings to identify complex terms and replace them with simpler definitions. The resulting text is then summarized using a BERT2BERT model fine-tuned on a CNN/Dailymail dataset. From the results, we use a standard method for generating reading levels, the Flesch reading ease score test, and find an overall increase in readability after applying our models\nAbstract\n\n\n\n\nAwards\nHDR DSC Award #1924205 and Award #1924008, issued by the National Science Foundation’s Harnessing the Data Revolution Data Science Corps"
-  },
-  {
-    "objectID": "projects/evidation/index.html",
-    "href": "projects/evidation/index.html",
-    "title": "Evidation Research",
-    "section": "",
-    "text": "I was the spokesperson and meeting-organizer for a team of five students, two industry sponsors, and an academic adviser. Learned methods for working with time-series health data to establish trends as well as determine how to handle missing data with the use of data imputation techniques in R and\nPython. Developed two innovative models to define respiratory illness case onset and recovery period."
-  },
-  {
-    "objectID": "projects/projects.html",
-    "href": "projects/projects.html",
-    "title": "projects",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "projects/yelp/index.html",
-    "href": "projects/yelp/index.html",
-    "title": "Yelp Research",
-    "section": "",
-    "text": "I was the spokesperson and meeting-organizer for a team of five students, two industry sponsors, and an academic adviser. Learned methods for working with time-series health data to establish trends as well as determine how to handle missing data with the use of data imputation techniques in R and\nPython. Developed two innovative models to define respiratory illness case onset and recovery period."
   }
 ]
