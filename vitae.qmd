@@ -1,0 +1,71 @@
+---
+title: "vitae"
+image: "about_me.jpg"
+about:
+  template: jolla
+---
+
+> I believe that data science is similar to the art of painting, both use different forms of expression to communicate an idea to a broad audience. As a statistician, my duty is to prioritize open-communication and storytelling to ensure that statistics and machine learning are accessible to everyone, just like painting. My beliefs allow me to be a diligent worker who has a passion for building connections, both interpersonal and mathematically, and helping to create a world that everyone is apart of and can feel happy about.
+
+<br>
+
+### Technical Skills
+
+#### Languages
+
+R, Python, SQL, HTML, CSS, Excel, SAS
+
+#### Machine Learning
+
+Tree Algorithms: XGBoost, Random Forests, Decision Trees
+
+Regression: Logistic Regression, Linear Regression, Lasso Regression, Ridge Regression
+
+Clustering: K-Nearest Neighbors
+
+Deep Learning: Neural Networks, Recurrent Neural Networks, Encoder Models, Decoder Models, Encoder-Decoder Models
+
+#### Computational Linguistics
+
+Hidden Markov Models, Noisy Channel models, Large Language Models (Bert and GPT)
+
+Working with word vectors and cosine similarity to achieve similarity scores
+
+Observing semantic relationships
+
+Recognizing trends within text data in order to extrapolate predictions
+
+<br>
+
+### Education
+
+University of California, Santa Barbara \| B.S. in Statistics and Data Science, GPA: 3.5 (2021 - 2023)
+
+Santa Barbara City College \| A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)
+
+### Experience
+
+#### Undergraduate Research Assistant
+
+UC Santa Barbara (2023 - Present)
+
+Conducting research alongside a professor, PhD candidate, and fellow undergraduate student with the goal of validating and building upon 3+ prior linguistic research papers proving the Functional Load Hypothesis. The research is conducted at the CPLS Lab at the University of California, Santa Barbara.
+
+#### Researcher
+
+Evidation Health, Inc. (2023)
+
+Spokesperson and meeting-organizer for a team of five students, two industry sponsors, and an academic adviser. Learned methods for working with time-series health data to establish trends as well as determine how to handle missing data with the use of data imputation techniques in R and\
+Python. Developed two innovative models to define respiratory illness case onset and recovery period.
+
+#### Central Coast Data Science Fellow
+
+National Science Foundation (2022-2023)
+
+As a fellow, my goal was to advance data science education and understanding in the community. I was responsible for outreach efforts to promote data science courses and events, as well as engage with community members to raise awareness about the importance of data science in today's world. I produced two flyers to promote a course and a project showcase. I worked alongside my professor to help build a course website utilizing quarto and R.
+
+<br>
+
+### Awards
+
+HDR DSC Award #1924205 and Award #1924008, issued by the National Science Foundation's Harnessing the Data Revolution Data Science Corps\

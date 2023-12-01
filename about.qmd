@@ -1,0 +1,23 @@
+---
+title: "about me"
+---
+
+I am currently wrapping up my final year at the University of California, Santa Barbara, where I am studying Statistics and Data Science B.S. Here, I have taken a wide range of various statistics courses including Intermediate Python, Regression Analysis, and anything in between.
+
+While at UCSB, I had the opportunity to work on my first research paper titled ***Identifying Optimal Case Onset Points for Early Detection of Influenza-like Illness***. For this project, I worked alongside a group of 4 and a data science team at Evidation Health Inc. for 6 months. At the end, I participated in two project showcases, one on campus and another at the KDD 2023 conference in Long Beach.
+
+::: column-margin
+```{r, echo=FALSE}
+knitr::include_graphics("conference.png")
+```
+
+::: {.extra-small-text .dark-orange-text .topbr}
+KDD 2023 conference in Long Beach.
+:::
+:::
+
+While working on my first research project, I was sponsored by the NSF to promote the field of data science within my community. As part of my job, I curated numerous event posters and aided a professor with one of their course websites.
+
+Currently, I am in my last quarter and in the transition period of applying to graduate school. While tying up loose ends, I am pursuing my interests in the interdisciplinary field of Linguistics and Statistics, though many know this as "natural language processing". Current research at the CPLS lab includes the exploration and validation of the Functional Load Hypothesis and it's relation to predicting phonological mergers.
+
+> The Functional Load Hypothesis (Jakobson, 1931; Martinet, 1952) states that sounds distinguishing more words (high functional load) are less likely to disappear or merge with other sounds during sound change ([UCLA](https://escholarship.org/uc/item/4c16q64c))

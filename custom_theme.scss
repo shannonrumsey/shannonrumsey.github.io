@@ -1,0 +1,133 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@300&family=Noto+Serif+Georgian:wght@300&display=swap');
+
+// Colors
+$sage: #e1eedd;
+$emerald: #183a1d;
+$cream: #fefbe9;
+$dark-gray: #5A5856;
+$black: #000000;
+$burnt-orange: #f0a04b;
+$burnt-yellow: #f6c453;
+
+// Base document colors
+$navbar-bg: $cream;
+$navbar-fg: $burnt-orange; 
+$navbar-hl: $burnt-yellow; 
+$body-bg: $cream;
+$body-color: $emerald;
+$footer-bg: $emerald; 
+$link-color: $burnt-yellow;
+
+
+/*-- scss:rules --*/
+
+/* ELEMENT SELECTORS */
+
+blockquote, .blockquote {
+  font-style: italic;
+  font-weight: 400;
+  color: $burnt-orange;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: $emerald;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+body {
+  line-height: 1.5; // min 1.5 suggested for assistive tech
+  font-size: 19.5px;
+}
+
+// larger text
+.large-text {
+  font-size: 20px;
+}
+
+// slightly smaller than default text
+.small-text {
+  font-size: 16px;
+}
+
+// smallest text
+.extra-small-text{
+  font-size: 14px;  
+}
+
+
+// center align text
+.center-text {
+  text-align: center;
+  left: 50%;
+}
+
+// dark gray text
+.dark-orange-text{
+  color: $burnt-orange;
+}
+
+
+// btn styling
+.btn {
+  color: $burnt-orange;;
+  background-color: $cream;
+  border-color: $burnt-orange;;
+}
+
+// button hover styling
+.btn:hover {
+  color: $cream;
+  background-color: $burnt-yellow;
+  border-color: $burnt-yellow;
+}
+
+// center image only
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CLASS SELECTORS (copied from inspecting site -- Quarto defined?) */
+
+// resize logo (top left corner) see https://github.com/robertmitchellv/robertmitchellv.github.io/blob/main/custom-dark.scss
+.navbar-brand img { 
+  max-height: 140px;
+  width: auto;
+}
+
+// headshot shape
+.rounded { 
+    border-radius: 10px 30px 10px 30px !important;
+}
+
+// button text size (landing page)
+.about-link-text { 
+  font-size: 25px;
+}
+
+// button icon size (landing page)
+.bi { 
+  font-size: 25px;
+}
+
+// listing card styling
+.card {
+  background-color: $cream;
+}
+
+// listing description text styling
+.description {
+  font-size: 25px;
+}

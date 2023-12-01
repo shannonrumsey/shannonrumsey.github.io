@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs/
+
+website:
+  site-url: https://shannonrumsey.github.io/
+  title: "shannonrumsey"
+  navbar:
+    title: false
+    logo: logo.png
+    search: true
+    
+    right:
+      - href: index.qmd
+        text: home
+      - about.qmd
+      - vitae.qmd
+      - href: Resume.pdf
+        text: resume
+      - icon: github
+        href: https://github.com/shannonrumsey
+      - icon: linkedin
+        href: https://www.linkedin.com/in/shannon-rumsey/
+      - icon: envelope
+        href: shannonalmyrumsey@gmail.com
+    collapse: true
+  back-to-top-navigation: false
+  page-footer:
+    border: false
+    background: light
+    right: 
+      - icon: github
+        href: https://github.com/shannonrumsey
+      - icon: linkedin
+        href: https://www.linkedin.com/in/shannon-rumsey/
+      - icon: envelope
+        href: mailto::shannonalmyrumsey@gmail.com
+
+
+format:
+  html:
+    theme: 
+      - custom_theme.scss
+    toc: false
+
+editor: visual
+
