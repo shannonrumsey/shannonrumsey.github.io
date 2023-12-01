@@ -1,16 +1,16 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Shannon Rumsey",
-    "section": "",
-    "text": "My name is Shannon and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty is in computational linguistics and natural language processing."
-  },
-  {
     "objectID": "vitae.html",
     "href": "vitae.html",
     "title": "vitae",
     "section": "",
     "text": "Technical Skills\n\nLanguages\nR, Python, SQL, HTML, SAS\n\n\nMachine Learning\nTree Algorithms: XGBoost, Random Forests, Decision Trees\nRegression: Logistic Regression, Linear Regression, Lasso Regression, Ridge Regression\nClustering: K-Nearest Neighbors\nDeep Learning: Neural Networks, Recurrent Neural Networks, Encoder Models, Decoder Models, Encoder-Decoder Models\n\n\nComputational Linguistics\nHidden Markov Models, Noisy Channel models, Large Language Models (Bert and GPT)\nWorking with word vectors and cosine similarity to achieve similarity scores\nObserving semantic relationships\nRecognizing trends within text data in order to extrapolate predictions\n\n\n\n\nEducation\nUniversity of California, Santa Barbara | B.S. in Statistics and Data Science, GPA: 3.5 (2021 - 2023)\nSanta Barbara City College | A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)\n\n\nProjects\n\nUndergraduate Research Assistant\nUC Santa Barbara (2023 - Present)\nAs an undergraduate research assistant, I worked to validate the Functional Load Hypothesis – the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on hand-picked and preprocessed corpora, we are able to quantify the extent to which words differing by one sound, or minimal pairs, may be confused with each other in context and compared to a simple count of words. The goal of this comparison is to understand if the rate of confusibility is dependent on the particular sound the minimal pairs share.\n\n\nResearcher\nEvidation Health, Inc. (2023)\nA collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using remotely collected data such as an individual’s resting heart rate and caloric expenditure, we predicted the outcome of the participant’s RVI lab test result. The resulting boosted tree model observed deviations from individual participant baselines, indicating the occurrence or absence of RVI without the need for a lab test.\nAbstract\n\n\nIndependent Researcher\nUC Santa Barbara (2023)\nUsing synonym replacement and text summarization, we explore the methodology of medical transcription simplification and what it means for text to be “simplified”. The synonym simplification process utilizes BioBERT embeddings to identify complex terms and replace them with simpler definitions. The resulting text is then summarized using a BERT2BERT model fine-tuned on a CNN/Dailymail dataset. From the results, we use a standard method for generating reading levels, the Flesch reading ease score test, and find an overall increase in readability after applying our models\nAbstract\n\n\n\n\nAwards\nHDR DSC Award #1924205 and Award #1924008, issued by the National Science Foundation’s Harnessing the Data Revolution Data Science Corps"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shannon Rumsey",
+    "section": "",
+    "text": "My name is Shannon and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty is in computational linguistics and natural language processing."
   }
 ]
