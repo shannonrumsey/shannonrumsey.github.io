@@ -7,15 +7,14 @@ website:
   title: "shannonrumsey"
   navbar:
     title: false
-    logo: logo.png
     search: true
     
     right:
       - href: index.qmd
-        text: home
+        text: Home
       - vitae.qmd
       - href: Resume.pdf
-        text: resume
+        text: Resume
       - icon: github
         href: https://github.com/shannonrumsey
       - icon: linkedin

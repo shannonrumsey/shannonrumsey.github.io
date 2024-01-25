@@ -7,7 +7,7 @@ $emerald: #183a1d;
 $cream: #fefbe9;
 $dark-gray: #5A5856;
 $black: #000000;
-$burnt-orange: #f0a04b;
+$burnt-orange: #EF881B;
 $burnt-yellow: #f6c453;
 
 // Base document colors
@@ -19,34 +19,29 @@ $body-color: $emerald;
 $footer-bg: $emerald; 
 $link-color: $burnt-yellow;
 
-
 /*-- scss:rules --*/
 
-/* ELEMENT SELECTORS */
-
-blockquote, .blockquote {
-  font-style: italic;
-  font-weight: 400;
-  color: $burnt-orange;
+body {
+  font-family: 'Noto Serif Georgian', serif; // Professional serif font
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
+  font-size: 18px; 
 }
 
-
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Neuton', serif; // Distinct header font
   letter-spacing: 3px;
   font-weight: 700;
   color: $emerald;
 }
 
-h3 {
-  font-size: 25px;
-}
-
-h1 {
-  font-size: 30px;
-}
+h1 { font-size: 36px; } // Larger for main titles
+h2 { font-size: 32px; } // Subtitles
+h3 { font-size: 28px; }
 
 body {
-  line-height: 1.5; // min 1.5 suggested for assistive tech
+  line-height: 1.5; 
   font-size: 19.5px;
 }
 
@@ -66,50 +61,38 @@ body {
 }
 
 
-// center align text
-.center-text {
-  text-align: center;
-  left: 50%;
-}
-
-// dark gray text
-.dark-orange-text{
+blockquote, .blockquote {
+  font-style: italic;
+  font-weight: 400;
   color: $burnt-orange;
+  border-left: 4px solid $emerald;
+  padding-left: 15px;
+  margin: 20px 0;
 }
 
+// Text Classes
+.large-text { font-size: 22px; }
+.small-text { font-size: 16px; }
+.extra-small-text { font-size: 14px; }
+.center-text { text-align: center; }
+.dark-orange-text { color: $burnt-orange; }
 
-// btn styling
+// Button Styling
 .btn {
-  color: $burnt-orange;;
+  color: $burnt-orange;
   background-color: $cream;
-  border-color: $burnt-orange;;
+  border: 2px solid $burnt-orange;
+  padding: 10px 15px;
+  text-transform: uppercase; 
+  transition: all 0.3s ease-in-out;
 }
 
-// button hover styling
+
+
 .btn:hover {
   color: $cream;
   background-color: $burnt-yellow;
   border-color: $burnt-yellow;
-}
-
-// center image only
-.center-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* CLASS SELECTORS (copied from inspecting site -- Quarto defined?) */
-
-// resize logo (top left corner) see https://github.com/robertmitchellv/robertmitchellv.github.io/blob/main/custom-dark.scss
-.navbar-brand img { 
-  max-height: 140px;
-  width: auto;
-}
-
-// headshot shape
-.rounded { 
-    border-radius: 10px 30px 10px 30px !important;
 }
 
 // button text size (landing page)
@@ -117,17 +100,37 @@ body {
   font-size: 25px;
 }
 
-// button icon size (landing page)
 .bi { 
   font-size: 25px;
 }
 
-// listing card styling
-.card {
-  background-color: $cream;
+// center align text
+.center-text {
+  text-align: center;
+  left: 50%;
 }
 
-// listing description text styling
-.description {
-  font-size: 25px;
+// Image and Branding
+.navbar-brand img { max-height: 100px; }
+.center-img { display: block; margin: 0 auto; }
+.rounded { border-radius: 50%; } // Fully rounded for headshots
+
+// Card & Description Styling
+.card { background-color: $cream; border: 1px solid $sage; }
+.description { font-size: 20px; } // Slightly reduced for readability
+
+// Footer Styling
+footer {
+  background-color: $footer-bg;
+  color: $cream;
+  padding: 20px 0;
+  text-align: center;
+}
+
+// Responsive Design Adjustments
+@media (max-width: 768px) {
+  .navbar-brand img { max-height: 80px; }
+  h1 { font-size: 30px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 24px; }
 }

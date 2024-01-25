@@ -10,4 +10,4 @@ about:
       href: https://www.linkedin.com/in/shannon-rumsey/
 ---
 
-My name is Shannon and I am an Undergraduate Researcher at the University of California, Santa Barbara. While I am well-versed in the world of data science, my specialty is in computational linguistics and natural language processing.
+I am working as a post-baccalaureate research assistant for the Computational Psycholinguistics of Listening and Speaking lab at UC Santa Barbara. I am looking forward to a research oriented career that uses NLP and AI to create assistive technologies.
