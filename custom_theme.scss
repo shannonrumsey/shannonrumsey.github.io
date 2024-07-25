@@ -1,0 +1,68 @@
+
+// Colors
+$sage: #e1eedd;
+$emerald: #183a1d;
+$cream: #fefbe9;
+$dark-gray: #5A5856;
+$black: #000000;
+$burnt-orange: #EF881B;
+$burnt-yellow: #f6c453;
+
+// Base document colors
+$navbar-bg: $cream;
+$navbar-fg: $burnt-orange; 
+$navbar-hl: $burnt-yellow; 
+$body-bg: $cream;
+$body-color: $emerald;
+$footer-bg: $emerald; 
+$link-color: $burnt-yellow;
+
+/*-- scss:rules --*/
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
+  font-size: 18px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: $emerald;
+}
+
+h1 { font-size: 36px; } // largest heading
+h2 { font-size: 32px; }
+h3 { font-size: 28px; } // smallest heading
+
+// controls the size of button
+.bi { 
+  font-size: 25px;
+}
+
+// button appearance
+.btn {
+  color: $burnt-orange;
+  background-color: $cream;
+  border: 2px solid $burnt-orange;
+  padding: 10px 15px;
+  text-transform: uppercase; 
+  transition: all 0.3s ease-in-out;
+}
+
+// what the button will look like when hovered on
+.btn:hover {
+  color: $cream;
+  background-color: $burnt-yellow;
+  border-color: $burnt-yellow;
+}
+
+// footer appearance
+footer {
+  background-color: $footer-bg;
+  color: $cream;
+  padding: 20px 0;
+  text-align: center;
+}
+

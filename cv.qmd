@@ -1,0 +1,67 @@
+---
+title: "CV"
+image: "conference.png"
+about:
+  template: jolla
+
+---
+
+### Education
+
+University of California, Santa Barbara \| B.S. in Statistics and Data Science, GPA: 3.63 (2021 - 2023)
+
+Santa Barbara City College \| A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)
+
+### Technical Skills
+
+**Programming:** Python, R, SAS, SQL
+
+**Computational Linguistics (Python):** Neural Networks (DNN, RNN, LSTM), Sentiment Analysis, Natural Language Processing, Distributional Semantics, Automatic Summarization
+
+**Statistics and Data Science (Python & R):** Data Imputation Methods, Regression Analysis, Bayesian Data Analysis, Survival Analysis, Non-parametric Methods
+
+### Research Experience
+
+#### Post-baccalaureate Research Assistant
+
+UC Santa Barbara (June 2023 - Present)
+
+As a post-baccalaureate research assistant for the CPLS Lab, I am conducting research that validates the Functional Load Hypothesis -- the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on the carefully selected corpora of nine languages, we are able to quantify the extent to which words differing by one sound, that is, minimal pairs, may be confused with each other in context and compared to a simple count of words. This important linguistic theory provides insight on how languages may evolve overtime.
+
+[CPLS Lab](https://ucsb-cpls-lab.github.io/){.btn .btn-secondary role="button"}
+
+#### Capstone Researcher
+
+Evidation Health, Inc. (January 2023 - June 2023)
+
+This project was a collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using data collected from Fitbit devices, such as an individual's resting heart rate and caloric expenditure, we designed a boosted tree model that was able to predict the outcome of the participant's RVI lab test result and their hypothesized recovery interval. This project was presented at the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining in Long Beach, CA.
+
+[Abstract](evidation_poster_abstract.pdf){.btn .btn-secondary role="button"} [Poster](evidation_poster.pdf){.btn .btn-secondary role="button"}
+
+#### Undergraduate Data Science Fellow
+
+Central Coast Data Science Partnership (September 2022 - June 2023)
+
+As part of a cohort, I led outreach programs aimed at inspiring students and promoting departmental courses to a diverse student body. At the end of the academic year, I helped to organize and present at the Department of Probability and Statistics Project Showcase.
+
+[CCDSP Profile](https://centralcoastdatascience.org/people/fellows/shannon-rumsey){.btn .btn-secondary role="button"}
+
+### Other Endeavors
+
+#### Independent Researcher
+
+UC Santa Barbara (April 2023 - June 2023)
+
+Using synonym replacement and text summarization, my team and I explored the methodology of medical transcription simplification and set out to define readability of documents. Our results indicated that our synonym replacement and summarization were successful in increasing the readability of medical transcriptions by reducing the Flesch-Kincaid metric, effectively democratizing information contained in these transcriptions. This project took on two phases: synonym simplification and summarization. In the first phase, we computed cosine similarities between BioBert embeddings derived from Harvard Health medical definitions and context dependent terminology found in the transcriptions to discover synonym substitutions. The second phase employed Bert2Bert to summarize and further refine the overall documents.
+
+[Abstract](medical_transcription_simplification.pdf){.btn .btn-secondary role="button"}
+
+#### Independent Researcher (September 2022 - December 2022)
+
+Written in the style of a follow-along blog post, I set out to assess the relationship between geographic attributes of a food-related business and their reviews. Referencing the Bing Sentiment Lexicon in R, I extracted text dependent information that encapsulated how reviewers felt beyond their star ratings. After extensive data collection on both the businesses and reviews, I trained 4 machine learning methods to identify key predictors for defining a business's location within the Santa Barbara county. The number of reviews, review ratings, and votes on reviews proved to be the most important factors in a business's rating, illuminating both the importance of business location but also the pitfalls of star ratings derived from averages.
+
+[Report](yelp_review_sentiment.html){.btn .btn-secondary role="button"}
+
+### Awards
+
+HDR DSC Award #1924205 and Award #1924008, issued by the National Science Foundation's Harnessing the Data Revolution Data Science Corps\

@@ -1,0 +1,19 @@
+---
+title: "Shannon Rumsey"
+about:
+  id: hero-heading
+  template: trestles
+  image: profile.png
+  links:
+    - icon: github
+      href: https://github.com/shannonrumsey
+    - icon: linkedin
+      href: https://www.linkedin.com/in/shannon-rumsey/
+---
+
+:::{#hero-heading}
+
+I am working as a post-baccalaureate research assistant for the Computational Psycholinguistics of Listening and Speaking lab at UC Santa Barbara. I am looking forward to a research oriented career that uses NLP and AI to create assistive technologies.
+
+:::
+
