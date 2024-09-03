@@ -3,7 +3,6 @@ title: "CV"
 image: "conference.png"
 about:
   template: jolla
-
 ---
 
 ### Education

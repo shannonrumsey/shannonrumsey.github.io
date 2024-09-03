@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>shannonrumsey - CV</title>
+<title>shannonrumsey - Deep Dives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -78,12 +79,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./cv.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./cv.html" rel="" target="">
  <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
- <span class="menu-text">Deep Dives into Machine Learning</span></a>
+    <a class="nav-link active" href="./blog.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Deep Dives</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./Resume.pdf" rel="" target="">
@@ -112,89 +113,234 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
-  <li><a href="#technical-skills" id="toc-technical-skills" class="nav-link" data-scroll-target="#technical-skills">Technical Skills</a></li>
-  <li><a href="#research-experience" id="toc-research-experience" class="nav-link" data-scroll-target="#research-experience">Research Experience</a></li>
-  <li><a href="#other-endeavors" id="toc-other-endeavors" class="nav-link" data-scroll-target="#other-endeavors">Other Endeavors</a></li>
-  <li><a href="#awards" id="toc-awards" class="nav-link" data-scroll-target="#awards">Awards</a></li>
+  <li><a href="#gpt-architecture" id="toc-gpt-architecture" class="nav-link active" data-scroll-target="#gpt-architecture">GPT Architecture</a>
+  <ul class="collapse">
+  <li><a href="#analogy" id="toc-analogy" class="nav-link" data-scroll-target="#analogy">Analogy</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#step-1-encoding" id="toc-step-1-encoding" class="nav-link" data-scroll-target="#step-1-encoding">Step 1: Encoding</a></li>
+  <li><a href="#step-2-token-embedding-optimize-storing-word-informationmeaning" id="toc-step-2-token-embedding-optimize-storing-word-informationmeaning" class="nav-link" data-scroll-target="#step-2-token-embedding-optimize-storing-word-informationmeaning">Step 2: Token Embedding: Optimize Storing Word Information/Meaning</a></li>
+  <li><a href="#step-3-positional-encodings" id="toc-step-3-positional-encodings" class="nav-link" data-scroll-target="#step-3-positional-encodings">Step 3: Positional Encodings</a></li>
+  <li><a href="#step-4-attention-single-head" id="toc-step-4-attention-single-head" class="nav-link" data-scroll-target="#step-4-attention-single-head">Step 4: Attention (Single Head)</a></li>
+  <li><a href="#step-5-multi-head-attention" id="toc-step-5-multi-head-attention" class="nav-link" data-scroll-target="#step-5-multi-head-attention">Step 5: Multi-head Attention</a></li>
+  <li><a href="#step-6-feed-forward" id="toc-step-6-feed-forward" class="nav-link" data-scroll-target="#step-6-feed-forward">Step 6: Feed Forward</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="conference.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CV</h1>
+<h1 class="title">Deep Dives</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><main class="content" id="quarto-document-content">
+  
 
-<section id="education" class="level3">
-<h3 data-anchor-id="education">Education</h3>
-<p>University of California, Santa Barbara | B.S. in Statistics and Data Science, GPA: 3.63 (2021 - 2023)</p>
-<p>Santa Barbara City College | A.A. in Liberal Arts-Science: Science &amp; Math, GPA: 3.86 (2019 - 2021)</p>
+</header>
+
+<section id="gpt-architecture" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="gpt-architecture">GPT Architecture</h2>
+<section id="analogy" class="level3">
+<h3 class="anchored" data-anchor-id="analogy">Analogy</h3>
+<p>We want to teach a computer the English language (which consists of 50,257 words) so that it can communicate and aid in problem-solving. To begin, we translate each English word to the computer’s language equivalent (cat -&gt; [0, 0, 1]), but this is not very helpful because it’s impractical and can create meaningless sentences. It would be very difficult for a human to learn Spanish using only an English-to-Spanish translation book. Instead of a direct lookup, we can provide a description or set of ratings (an embedding) for each word. These descriptions/ratings are updated continuously as the computer understands more and more about the language.</p>
+<p>Understanding words is not enough to grasp a language; the way they are ordered is also important. For example, “the cat chased the mouse” has a very different meaning from “the mouse chased the cat”. In addition to providing a rating scheme for each word, we also include its position within the sentence.</p>
+<p>In order for the computer to understand the language and communicate, it must be able to determine which words are important and how they relate to other words in the sentence. For example, in the sentence “when she went to the bank, she saw a man,” the computer must be able to differentiate a financial institution from the side of a river, must reason that the two instances of “she” refer to the same person, and that the man was seen at the bank, not somewhere else.</p>
 </section>
-<section id="technical-skills" class="level3">
-<h3 data-anchor-id="technical-skills">Technical Skills</h3>
-<p><strong>Programming:</strong> Python, R, SAS, SQL</p>
-<p><strong>Computational Linguistics (Python):</strong> Neural Networks (DNN, RNN, LSTM), Sentiment Analysis, Natural Language Processing, Distributional Semantics, Automatic Summarization</p>
-<p><strong>Statistics and Data Science (Python &amp; R):</strong> Data Imputation Methods, Regression Analysis, Bayesian Data Analysis, Survival Analysis, Non-parametric Methods</p>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<ul>
+<li>GPT models take a sentence in and predict the next word (only produces one word/token at a time through the entire transformer!).
+<ul>
+<li>They do this by assigning probabilities to words it may be, and selecting the word with the highest probability.</li>
+<li>The input length will always be a certain number of words (e.g., GPT-3’s is 2048 words).
+<ul>
+<li>You can have a smaller input length; there will just be padding (empty values).</li>
+<li>You cannot have a larger input length.</li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
-<section id="research-experience" class="level3">
-<h3 data-anchor-id="research-experience">Research Experience</h3>
-<section id="post-baccalaureate-research-assistant" class="level4">
-<h4 data-anchor-id="post-baccalaureate-research-assistant">Post-baccalaureate Research Assistant</h4>
-<p>UC Santa Barbara (June 2023 - Present)</p>
-<p>As a post-baccalaureate research assistant for the CPLS Lab, I am conducting research that validates the Functional Load Hypothesis – the theory that sounds distinguishing more words are less likely to disappear from a language or merge with other sounds. Using Word2Vec embeddings trained on the carefully selected corpora of nine languages, we are able to quantify the extent to which words differing by one sound, that is, minimal pairs, may be confused with each other in context and compared to a simple count of words. This important linguistic theory provides insight on how languages may evolve overtime.</p>
-<p><a href="https://ucsb-cpls-lab.github.io/" class="btn btn-secondary" role="button">CPLS Lab</a></p>
+<section id="step-1-encoding" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="step-1-encoding">Step 1: Encoding</h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 Turn words into vectors</p>
+</div></div><ul>
+<li>There is a dictionary of all words. Each word is associated with a numeric value (e.g., GPT-2 has a vocab size of 50,257 words).
+<ul>
+<li>Cat = 1, Dog = 2, Car = 3, etc.</li>
+</ul></li>
+<li>For each word, we map them to the corresponding location in the vocab dictionary, turning them into a one-hot encoding vector of size 50,257.
+<ul>
+<li>Cat would have the vector: [1, 0, 0, …, 0].</li>
+<li>Dog would have: [0, 1, 0, …, 0].</li>
+<li>Car would have: [0, 0, 1, …, 0].</li>
+</ul></li>
+<li>Putting these vectors together in a matrix, we end up with 2048 rows, representing the number of words/tokens in the input sequence, and 50,257 columns, representing the number of words in the dictionary. The row corresponds with the location in the sequence and the column represents the location in the dictionary.
+<ul>
+<li>The matrix is 2048 x 50,257 and is made up of only 0s and 1s.</li>
+</ul></li>
+</ul>
 </section>
-<section id="capstone-researcher" class="level4">
-<h4 data-anchor-id="capstone-researcher">Capstone Researcher</h4>
-<p>Evidation Health, Inc.&nbsp;(January 2023 - June 2023)</p>
-<p>This project was a collaboration with Evidation to investigate alternative diagnostic metrics for respiratory viral infections (RVI). Using data collected from Fitbit devices, such as an individual’s resting heart rate and caloric expenditure, we designed a boosted tree model that was able to predict the outcome of the participant’s RVI lab test result and their hypothesized recovery interval. This project was presented at the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining in Long Beach, CA.</p>
-<p><a href="evidation_poster_abstract.pdf" class="btn btn-secondary" role="button">Abstract</a> <a href="evidation_poster.pdf" class="btn btn-secondary" role="button">Poster</a></p>
+<section id="step-2-token-embedding-optimize-storing-word-informationmeaning" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="step-2-token-embedding-optimize-storing-word-informationmeaning">Step 2: Token Embedding: Optimize Storing Word Information/Meaning</h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 Having so many empty (zeroes) slots in the matrix takes up too much unnecessary space</p>
+</div></div><ul>
+<li>Preserve semantic meaning of words in an optimal way using embedding functions.
+<ul>
+<li>We want to project this large one-hot encoded matrix to a smaller, dense vector space.
+<ul>
+<li>We initialize an embedding matrix with dimensions [vocab_size, embedding_dim].
+<ul>
+<li>Vocab size is 50,257 and embedding dim is the desired number of traits we want.</li>
+</ul></li>
+<li>Each one-hot vector in the matrix is mapped to this dense embedding vector (via multiplication).
+<ul>
+<li>This is called the embedding function.</li>
+<li>This results in an embedding vector of size [1, embedding_dim] for each word in the dictionary.</li>
+</ul></li>
+<li>Each element in the embedding represents a learned trait of the word.
+<ul>
+<li>i.e., Dog may have the vector embedding [energetic = 10, cute = 10], whereas car has [energetic = 8, cute = 0].</li>
+<li>This is a better way of storing the data because it provides more semantic information and is in a lower dimension.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
-<section id="undergraduate-data-science-fellow" class="level4">
-<h4 data-anchor-id="undergraduate-data-science-fellow">Undergraduate Data Science Fellow</h4>
-<p>Central Coast Data Science Partnership (September 2022 - June 2023)</p>
-<p>As part of a cohort, I led outreach programs aimed at inspiring students and promoting departmental courses to a diverse student body. At the end of the academic year, I helped to organize and present at the Department of Probability and Statistics Project Showcase.</p>
-<p><a href="https://centralcoastdatascience.org/people/fellows/shannon-rumsey" class="btn btn-secondary" role="button">CCDSP Profile</a></p>
+<section id="step-3-positional-encodings" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-positional-encodings">Step 3: Positional Encodings</h3>
+<ul>
+<li>We need to take into account the syntax of the input sentence, which can affect the meaning of a sentence.
+<ul>
+<li>For example, “the tea is too hot, I am turning red” is different from “the tea is turning red, I am too hot.”</li>
+</ul></li>
+<li>We have two options for learning position embeddings:
+<ul>
+<li>Encode the position of the current token using sinusoidal functions with differing frequencies (Used in <em>Attention is All You Need</em>).
+<ul>
+<li>These are absolute/universal embeddings.
+<ul>
+<li>Each position is represented with a fixed vector that is consistent across different sequences/sentences.
+<ul>
+<li>The vector for the 5th position in one sentence is the same in all other sentences.</li>
+</ul></li>
+</ul></li>
+<li>We can represent the location number of a word in binary form, but it is more space-efficient to represent them using sinusoidal functions.</li>
+<li>The frequency of the wave is tied to which bits we are representing.
+<ul>
+<li>A higher frequency allows us to represent the numbers 0-3. A lower frequency allows us to represent the numbers 4-15.</li>
+<li>We are able to do this because the lowest bit alternates on every number, the second on every two numbers, etc. We line up the length of the sine/cosine wave’s cycle with the bits we want to represent.</li>
+</ul></li>
+</ul></li>
+<li>Trained/Learned Positional Embeddings (Used in GPT-2).
+<ul>
+<li>Relative positions of words.
+<ul>
+<li>The position of words in a given sentence; not universal across all sentences.</li>
+</ul></li>
+<li>Initialize a matrix with dimensions [max_positions, embedding_dim].
+<ul>
+<li>What the matrix is filled with at initialization can vary. PyTorch’s “nn.Embedding” will randomly sample values from a standard normal distribution.</li>
+<li>Max_positions is the maximum sequence length that the model can expect (2048 words).</li>
+<li>Embedding_dim must be the same number used for the token embeddings because they will be summed together to form the official input of the model.</li>
+</ul></li>
+<li>During training, the position in the input sequence is mapped to its corresponding row in the matrix.
+<ul>
+<li>The second position in a sequence is the second row in the matrix.</li>
+<li>Embeddings are learned during backpropagation and are adjusted to minimize the loss function.</li>
+<li>In the forward pass, these learned positional embeddings are added to token embeddings.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
+<section id="step-4-attention-single-head" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-attention-single-head">Step 4: Attention (Single Head)</h3>
+<ul>
+<li>Determine how important each input token is in predicting the output.</li>
+<li>Each attention head processes a single sequence at a time.</li>
+<li>For each head, compute three linear projections to result in a query, key, and value projection. The resulting dimensions for each matrix are [batch size, sequence length, number of embeddings / number of heads].
+<ul>
+<li>Linear projection: y = Wx + b.
+<ul>
+<li>y is the resulting projection (query, key, and value).</li>
+<li>W is the matrix of weights.
+<ul>
+<li>The first weights matrix is query, the second for key, and the third for value.</li>
+</ul></li>
+<li>x is the input.
+<ul>
+<li>This is the summed positional embeddings and token embeddings.</li>
+</ul></li>
+<li>b is the bias.</li>
+</ul></li>
+<li>Queries are the task/meaning of interest.</li>
+<li>Keys find relevant information based on the task.</li>
+<li>Values are the actual information from the tokens.</li>
+</ul></li>
+<li>The linear projection/transformation gives us 3 new projection matrices: queries, keys, and values.
+<ul>
+<li>The query and key (transposed) matrices are multiplied together and normalized through softmax (this turns raw scores into attention weights).
+<ul>
+<li>Determines tokens most relevant to queries.</li>
+<li>For example, in “the cat that chased the dog was tired,” “the cat” and “was tired” are related despite there being words in between.</li>
+</ul></li>
+<li>This new matrix is multiplied by the values matrix.
+<ul>
+<li>Provides information about tokens of interest.</li>
+<li>The final resulting matrix is [batch size, sequence length, number of embeddings].</li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
-<section id="other-endeavors" class="level3">
-<h3 data-anchor-id="other-endeavors">Other Endeavors</h3>
-<section id="independent-researcher" class="level4">
-<h4 data-anchor-id="independent-researcher">Independent Researcher</h4>
-<p>UC Santa Barbara (April 2023 - June 2023)</p>
-<p>Using synonym replacement and text summarization, my team and I explored the methodology of medical transcription simplification and set out to define readability of documents. Our results indicated that our synonym replacement and summarization were successful in increasing the readability of medical transcriptions by reducing the Flesch-Kincaid metric, effectively democratizing information contained in these transcriptions. This project took on two phases: synonym simplification and summarization. In the first phase, we computed cosine similarities between BioBert embeddings derived from Harvard Health medical definitions and context dependent terminology found in the transcriptions to discover synonym substitutions. The second phase employed Bert2Bert to summarize and further refine the overall documents.</p>
-<p><a href="medical_transcription_simplification.pdf" class="btn btn-secondary" role="button">Abstract</a></p>
+<section id="step-5-multi-head-attention" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-multi-head-attention">Step 5: Multi-head Attention</h3>
+<ul>
+<li>The process in step 4 is repeated multiple times (because of multiple heads).</li>
+<li>The results from each attention head are concatenated together.</li>
+<li>A final linear transformation is applied to project the outputs back to the original embedding dimension.
+<ul>
+<li>This is important because it’s the dimensions ([batch size, sequence length, embedding dimensions]) that the layers expect as input.</li>
+</ul></li>
+</ul>
 </section>
-<section id="independent-researcher-september-2022---december-2022" class="level4">
-<h4 data-anchor-id="independent-researcher-september-2022---december-2022">Independent Researcher (September 2022 - December 2022)</h4>
-<p>Written in the style of a follow-along blog post, I set out to assess the relationship between geographic attributes of a food-related business and their reviews. Referencing the Bing Sentiment Lexicon in R, I extracted text dependent information that encapsulated how reviewers felt beyond their star ratings. After extensive data collection on both the businesses and reviews, I trained 4 machine learning methods to identify key predictors for defining a business’s location within the Santa Barbara county. The number of reviews, review ratings, and votes on reviews proved to be the most important factors in a business’s rating, illuminating both the importance of business location but also the pitfalls of star ratings derived from averages.</p>
-<p><a href="yelp_review_sentiment.html" class="btn btn-secondary" role="button">Report</a></p>
+<section id="step-6-feed-forward" class="level3">
+<h3 class="anchored" data-anchor-id="step-6-feed-forward">Step 6: Feed Forward</h3>
+<section id="an-implementation-following-this-tutorial-can-be-found-here" class="level4">
+<h4 class="anchored" data-anchor-id="an-implementation-following-this-tutorial-can-be-found-here">An implementation following <a href="https://www.youtube.com/watch?v=l8pRSuU81PU&amp;t=4895s">this tutorial</a> can be found <a href="https://github.com/shannonrumsey/medGPT">here</a></h4>
 </section>
-</section>
-<section id="awards" class="level3">
-<h3 data-anchor-id="awards">Awards</h3>
-<p>HDR DSC Award #1924205 and Award #1924008, issued by the National Science Foundation’s Harnessing the Data Revolution Data Science Corps<br>
-</p>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">References</h4>
+<p><a href="https://dugas.ch/artificial_curiosity/GPT_architecture.html">The GPT-3 Architecture, on a Napkin</a></p>
+<p><a href="https://kazemnejad.com/blog/transformer_architecture_positional_encoding/">Transformer Architecture: The Positional Encoding</a></p>
+<p><a href="https://medium.com/mantisnlp/positional-encodings-i-main-approaches-bd1199d6770d">Positional Encodings: Main Approaches</a></p>
 
 
 </section>
-</main>  
-</div>
- <!-- /main -->
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -215,6 +361,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

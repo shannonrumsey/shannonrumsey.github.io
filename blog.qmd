@@ -1,0 +1,121 @@
+---
+title: "Deep Dives"
+page-layout: full
+---
+
+## GPT Architecture
+
+### Analogy
+
+We want to teach a computer the English language (which consists of 50,257 words) so that it can communicate and aid in problem-solving. To begin, we translate each English word to the computer’s language equivalent (cat -\> \[0, 0, 1\]), but this is not very helpful because it’s impractical and can create meaningless sentences. It would be very difficult for a human to learn Spanish using only an English-to-Spanish translation book. Instead of a direct lookup, we can provide a description or set of ratings (an embedding) for each word. These descriptions/ratings are updated continuously as the computer understands more and more about the language.
+
+Understanding words is not enough to grasp a language; the way they are ordered is also important. For example, “the cat chased the mouse” has a very different meaning from “the mouse chased the cat”. In addition to providing a rating scheme for each word, we also include its position within the sentence.
+
+In order for the computer to understand the language and communicate, it must be able to determine which words are important and how they relate to other words in the sentence. For example, in the sentence “when she went to the bank, she saw a man,” the computer must be able to differentiate a financial institution from the side of a river, must reason that the two instances of “she” refer to the same person, and that the man was seen at the bank, not somewhere else.
+
+### Overview
+
+-   GPT models take a sentence in and predict the next word (only produces one word/token at a time through the entire transformer!).
+    -   They do this by assigning probabilities to words it may be, and selecting the word with the highest probability.
+    -   The input length will always be a certain number of words (e.g., GPT-3’s is 2048 words).
+        -   You can have a smaller input length; there will just be padding (empty values).
+        -   You cannot have a larger input length.
+
+### Step 1: Encoding
+
+::: aside
+💡 Turn words into vectors
+:::
+
+-   There is a dictionary of all words. Each word is associated with a numeric value (e.g., GPT-2 has a vocab size of 50,257 words).
+    -   Cat = 1, Dog = 2, Car = 3, etc.
+-   For each word, we map them to the corresponding location in the vocab dictionary, turning them into a one-hot encoding vector of size 50,257.
+    -   Cat would have the vector: \[1, 0, 0, …, 0\].
+    -   Dog would have: \[0, 1, 0, …, 0\].
+    -   Car would have: \[0, 0, 1, …, 0\].
+-   Putting these vectors together in a matrix, we end up with 2048 rows, representing the number of words/tokens in the input sequence, and 50,257 columns, representing the number of words in the dictionary. The row corresponds with the location in the sequence and the column represents the location in the dictionary.
+    -   The matrix is 2048 x 50,257 and is made up of only 0s and 1s.
+
+### Step 2: Token Embedding: Optimize Storing Word Information/Meaning
+
+::: aside
+💡 Having so many empty (zeroes) slots in the matrix takes up too much unnecessary space
+:::
+
+-   Preserve semantic meaning of words in an optimal way using embedding functions.
+    -   We want to project this large one-hot encoded matrix to a smaller, dense vector space.
+        -   We initialize an embedding matrix with dimensions \[vocab_size, embedding_dim\].
+            -   Vocab size is 50,257 and embedding dim is the desired number of traits we want.
+        -   Each one-hot vector in the matrix is mapped to this dense embedding vector (via multiplication).
+            -   This is called the embedding function.
+            -   This results in an embedding vector of size \[1, embedding_dim\] for each word in the dictionary.
+        -   Each element in the embedding represents a learned trait of the word.
+            -   i.e., Dog may have the vector embedding \[energetic = 10, cute = 10\], whereas car has \[energetic = 8, cute = 0\].
+            -   This is a better way of storing the data because it provides more semantic information and is in a lower dimension.
+
+### Step 3: Positional Encodings
+
+-   We need to take into account the syntax of the input sentence, which can affect the meaning of a sentence.
+    -   For example, “the tea is too hot, I am turning red” is different from “the tea is turning red, I am too hot.”
+-   We have two options for learning position embeddings:
+    -   Encode the position of the current token using sinusoidal functions with differing frequencies (Used in *Attention is All You Need*).
+        -   These are absolute/universal embeddings.
+            -   Each position is represented with a fixed vector that is consistent across different sequences/sentences.
+                -   The vector for the 5th position in one sentence is the same in all other sentences.
+        -   We can represent the location number of a word in binary form, but it is more space-efficient to represent them using sinusoidal functions.
+        -   The frequency of the wave is tied to which bits we are representing.
+            -   A higher frequency allows us to represent the numbers 0-3. A lower frequency allows us to represent the numbers 4-15.
+            -   We are able to do this because the lowest bit alternates on every number, the second on every two numbers, etc. We line up the length of the sine/cosine wave’s cycle with the bits we want to represent.
+    -   Trained/Learned Positional Embeddings (Used in GPT-2).
+        -   Relative positions of words.
+            -   The position of words in a given sentence; not universal across all sentences.
+        -   Initialize a matrix with dimensions \[max_positions, embedding_dim\].
+            -   What the matrix is filled with at initialization can vary. PyTorch’s “nn.Embedding” will randomly sample values from a standard normal distribution.
+            -   Max_positions is the maximum sequence length that the model can expect (2048 words).
+            -   Embedding_dim must be the same number used for the token embeddings because they will be summed together to form the official input of the model.
+        -   During training, the position in the input sequence is mapped to its corresponding row in the matrix.
+            -   The second position in a sequence is the second row in the matrix.
+            -   Embeddings are learned during backpropagation and are adjusted to minimize the loss function.
+            -   In the forward pass, these learned positional embeddings are added to token embeddings.
+
+### Step 4: Attention (Single Head)
+
+-   Determine how important each input token is in predicting the output.
+-   Each attention head processes a single sequence at a time.
+-   For each head, compute three linear projections to result in a query, key, and value projection. The resulting dimensions for each matrix are \[batch size, sequence length, number of embeddings / number of heads\].
+    -   Linear projection: y = Wx + b.
+        -   y is the resulting projection (query, key, and value).
+        -   W is the matrix of weights.
+            -   The first weights matrix is query, the second for key, and the third for value.
+        -   x is the input.
+            -   This is the summed positional embeddings and token embeddings.
+        -   b is the bias.
+    -   Queries are the task/meaning of interest.
+    -   Keys find relevant information based on the task.
+    -   Values are the actual information from the tokens.
+-   The linear projection/transformation gives us 3 new projection matrices: queries, keys, and values.
+    -   The query and key (transposed) matrices are multiplied together and normalized through softmax (this turns raw scores into attention weights).
+        -   Determines tokens most relevant to queries.
+        -   For example, in “the cat that chased the dog was tired,” “the cat” and “was tired” are related despite there being words in between.
+    -   This new matrix is multiplied by the values matrix.
+        -   Provides information about tokens of interest.
+        -   The final resulting matrix is \[batch size, sequence length, number of embeddings\].
+
+### Step 5: Multi-head Attention
+
+-   The process in step 4 is repeated multiple times (because of multiple heads).
+-   The results from each attention head are concatenated together.
+-   A final linear transformation is applied to project the outputs back to the original embedding dimension.
+    -   This is important because it’s the dimensions (\[batch size, sequence length, embedding dimensions\]) that the layers expect as input.
+
+### Step 6: Feed Forward
+
+#### An implementation following [this tutorial](https://www.youtube.com/watch?v=l8pRSuU81PU&t=4895s) can be found [here](https://github.com/shannonrumsey/medGPT)
+
+#### References
+
+[The GPT-3 Architecture, on a Napkin](https://dugas.ch/artificial_curiosity/GPT_architecture.html)
+
+[Transformer Architecture: The Positional Encoding](https://kazemnejad.com/blog/transformer_architecture_positional_encoding/)
+
+[Positional Encodings: Main Approaches](https://medium.com/mantisnlp/positional-encodings-i-main-approaches-bd1199d6770d)
