@@ -13,17 +13,13 @@ website:
       - href: index.qmd
         text: Home
       - href: cv.qmd
-      - text: CV
       - href: blog.qmd
-      - text: Deep Dives
       - href: Resume.pdf
         text: Resume
       - icon: github
         href: https://github.com/shannonrumsey
       - icon: linkedin
         href: https://www.linkedin.com/in/shannon-rumsey/
-      - icon: envelope
-        href: shannonalmyrumsey@gmail.com
     collapse: true
   back-to-top-navigation: false
   page-footer:
@@ -34,8 +30,6 @@ website:
         href: https://github.com/shannonrumsey
       - icon: linkedin
         href: https://www.linkedin.com/in/shannon-rumsey/
-      - icon: envelope
-        href: mailto::shannonalmyrumsey@gmail.com
 
 
 format:
