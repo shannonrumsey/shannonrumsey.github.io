@@ -12,8 +12,10 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - cv.qmd
-      - blog.qmd
+      - href: cv.qmd
+      - text: CV
+      - href: blog.qmd
+      - text: Deep Dives
       - href: Resume.pdf
         text: Resume
       - icon: github
