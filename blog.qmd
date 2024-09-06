@@ -3,15 +3,17 @@ title: "Deep Dives"
 page-layout: full
 ---
 
-## GPT Architecture
+# GPT Architecture
 
-### Analogy
+### An Analogy
 
 We want to teach a computer the English language (which consists of 50,257 words) so that it can communicate and aid in problem-solving. To begin, we translate each English word to the computer’s language equivalent (cat -\> \[0, 0, 1\]), but this is not very helpful because it’s impractical and can create meaningless sentences. It would be very difficult for a human to learn Spanish using only an English-to-Spanish translation book. Instead of a direct lookup, we can provide a description or set of ratings (an embedding) for each word. These descriptions/ratings are updated continuously as the computer understands more and more about the language.
 
 Understanding words is not enough to grasp a language; the way they are ordered is also important. For example, “the cat chased the mouse” has a very different meaning from “the mouse chased the cat”. In addition to providing a rating scheme for each word, we also include its position within the sentence.
 
 In order for the computer to understand the language and communicate, it must be able to determine which words are important and how they relate to other words in the sentence. For example, in the sentence “when she went to the bank, she saw a man,” the computer must be able to differentiate a financial institution from the side of a river, must reason that the two instances of “she” refer to the same person, and that the man was seen at the bank, not somewhere else.
+
+
 
 ### Overview
 
@@ -21,8 +23,9 @@ In order for the computer to understand the language and communicate, it must be
         -   You can have a smaller input length; there will just be padding (empty values).
         -   You cannot have a larger input length.
 
-### Step 1: Encoding
+## Model Inputs
 
+### Step 1: Encoding
 ::: aside
 💡 Turn words into vectors
 :::
@@ -54,7 +57,9 @@ In order for the computer to understand the language and communicate, it must be
             -   This is a better way of storing the data because it provides more semantic information and is in a lower dimension.
 
 ### Step 3: Positional Encodings
-
+::: aside
+💡 Represent the order of words in a sentence to further model understanding of sentence meaning
+:::
 -   We need to take into account the syntax of the input sentence, which can affect the meaning of a sentence.
     -   For example, “the tea is too hot, I am turning red” is different from “the tea is turning red, I am too hot.”
 -   We have two options for learning position embeddings:
@@ -78,8 +83,12 @@ In order for the computer to understand the language and communicate, it must be
             -   Embeddings are learned during backpropagation and are adjusted to minimize the loss function.
             -   In the forward pass, these learned positional embeddings are added to token embeddings.
 
-### Step 4: Attention (Single Head)
+## Transformer Block
 
+### Step 4: Attention (Single Head)
+::: aside
+💡 Produce an attention matrix which determines how important each word is in relation to the others
+:::
 -   Determine how important each input token is in predicting the output.
 -   Each attention head processes a single sequence at a time.
 -   For each head, compute three linear projections to result in a query, key, and value projection. The resulting dimensions for each matrix are \[batch size, sequence length, number of embeddings / number of heads\].
@@ -107,11 +116,66 @@ In order for the computer to understand the language and communicate, it must be
 -   The results from each attention head are concatenated together.
 -   A final linear transformation is applied to project the outputs back to the original embedding dimension.
     -   This is important because it’s the dimensions (\[batch size, sequence length, embedding dimensions\]) that the layers expect as input.
+    
+**Step 5a: Residual Connection**
+
+- The inputs to this layer are added (simple addition) to the resulting outputs
+    - this helps the model retain information from earlier stages of the network and prevents vanishing gradients
+
+**Step 5b: Normalization**
+
+- For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process
+- In the Attention is All You Need paper, layer normalization occurs after each attention layer
+- In GPT-2, layer normalization occurs before each self-attention layer in the transformer and after the final self-attention layer
 
 ### Step 6: Feed Forward
+::: aside
+💡 This is where the model learns complex patterns and relationships
+:::
 
-#### An implementation following [this tutorial](https://www.youtube.com/watch?v=l8pRSuU81PU&t=4895s) can be found [here](https://github.com/shannonrumsey/medGPT)
+- This is a multi-layer perceptron with one hidden layer
+- Information (embeddings) flows from the input nodes, through the hidden nodes, to the output nodes
+- Dimensions of inputs: [batch size, number of embeddings]
+- Each sequence in the batch is multiplied by the weights matrix (not to be confused with the weights matrices query, key, and value used in attention) and combined with a learned bias term
+- The sequence is then passed through an activation function to introduce non-linearity
+    - non-linearity is important because it allows the network to model more complex patterns that cannot be captured by linear functions
+- This process is repeated through the hidden layer to get the final result
+    - The hidden layer starts with a larger matrix (typically four times the original size) to capture and learn a broader set of features and relationships from the data. However, after processing in the hidden layer, it is refined and reduced, often matching the input shape or desired output shape
+- These types of neural networks are trained using backpropagation
+    - Backpropagation calculates (updates) exactly how much each weight should change in order for the neural network to produce better predictions and reduce error
+        - It starts at the last layer and moves up towards the first layer
+            - At each layer, backpropagation calculates how much the output of the layer (called activation) contributed to the overall loss by finding the derivative (called gradient) of the loss with respect to the layer’s outputs.
+            - Based on the calculations, backpropagation calculates how much of each weight in the layer needs to be adjusted by finding the derivative (gradient) of the loss with respect to each weight.
+            - Only the activation gradient is passed backward to the previous layer and the process of calculating the weights gradient is repeated.
 
+**Step 6a: Residual Connection**
+
+- The inputs to this layer are added (simple addition) to the resulting outputs
+    - this helps the model retain information from earlier stages of the network and prevents vanishing gradients
+
+**Step 6b: Normalization**
+
+- For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process
+- In the Attention is All You Need paper, layer normalization occurs after each feed forward layer
+- In GPT-2, layer normalization occurs before each feed forward layer in the transformer
+
+### Step 7: Decoding
+::: aside
+💡 Turn vectors into words
+:::
+
+- After each block (composed of self attention and feed forward) are repeated the desired number of times, we end up with a matrix [sequence length, number of embeddings]
+    - Each position in the sequence length has an associated vector of embeddings that describes that particular position in the sequence
+- In order to convert the matrix of vectors back into words, we reverse the embedding mapping
+    - this is done using a linear transformation which gives us a score for each word in the vocabulary for each output position
+    - the weight matrix used in the linear transformation for generating vocabulary scores is the same (tied) as the weight matrix used in the embedding layer (at the very beginning of the model)
+        - this ensures that the representations of tokens used in the model are consistent throughout the process
+    - the scores are converted into probabilities using softmax, where the probability represents how likely a word is the correct one for that position
+- Top-k sampling can be used to determine the final word
+    - the first k highest scored words are selected from the vocabulary
+    - a probability distribution of the k words is created based on their scores and the and we randomly sample one word from the distribution
+    
+    
 #### References
 
 [The GPT-3 Architecture, on a Napkin](https://dugas.ch/artificial_curiosity/GPT_architecture.html)
@@ -119,3 +183,9 @@ In order for the computer to understand the language and communicate, it must be
 [Transformer Architecture: The Positional Encoding](https://kazemnejad.com/blog/transformer_architecture_positional_encoding/)
 
 [Positional Encodings: Main Approaches](https://medium.com/mantisnlp/positional-encodings-i-main-approaches-bd1199d6770d)
+
+[Feed Forward Neural Networks](https://en.wikipedia.org/wiki/Feedforward_neural_network)
+
+[Top k and Top p](https://docs.cohere.com/docs/controlling-generation-with-top-k-top-p)
+
+#### An implementation following [this tutorial](https://www.youtube.com/watch?v=l8pRSuU81PU&t=4895s) can be found [here](https://github.com/shannonrumsey/medGPT)

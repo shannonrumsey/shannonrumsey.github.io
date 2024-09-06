@@ -118,14 +118,21 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#gpt-architecture" id="toc-gpt-architecture" class="nav-link active" data-scroll-target="#gpt-architecture">GPT Architecture</a>
   <ul class="collapse">
-  <li><a href="#analogy" id="toc-analogy" class="nav-link" data-scroll-target="#analogy">Analogy</a></li>
+  <li><a href="#an-analogy" id="toc-an-analogy" class="nav-link" data-scroll-target="#an-analogy">An Analogy</a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#model-inputs" id="toc-model-inputs" class="nav-link" data-scroll-target="#model-inputs">Model Inputs</a>
+  <ul class="collapse">
   <li><a href="#step-1-encoding" id="toc-step-1-encoding" class="nav-link" data-scroll-target="#step-1-encoding">Step 1: Encoding</a></li>
   <li><a href="#step-2-token-embedding-optimize-storing-word-informationmeaning" id="toc-step-2-token-embedding-optimize-storing-word-informationmeaning" class="nav-link" data-scroll-target="#step-2-token-embedding-optimize-storing-word-informationmeaning">Step 2: Token Embedding: Optimize Storing Word Information/Meaning</a></li>
   <li><a href="#step-3-positional-encodings" id="toc-step-3-positional-encodings" class="nav-link" data-scroll-target="#step-3-positional-encodings">Step 3: Positional Encodings</a></li>
+  </ul></li>
+  <li><a href="#transformer-block" id="toc-transformer-block" class="nav-link" data-scroll-target="#transformer-block">Transformer Block</a>
+  <ul class="collapse">
   <li><a href="#step-4-attention-single-head" id="toc-step-4-attention-single-head" class="nav-link" data-scroll-target="#step-4-attention-single-head">Step 4: Attention (Single Head)</a></li>
   <li><a href="#step-5-multi-head-attention" id="toc-step-5-multi-head-attention" class="nav-link" data-scroll-target="#step-5-multi-head-attention">Step 5: Multi-head Attention</a></li>
   <li><a href="#step-6-feed-forward" id="toc-step-6-feed-forward" class="nav-link" data-scroll-target="#step-6-feed-forward">Step 6: Feed Forward</a></li>
+  <li><a href="#step-7-decoding" id="toc-step-7-decoding" class="nav-link" data-scroll-target="#step-7-decoding">Step 7: Decoding</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -150,10 +157,10 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="gpt-architecture" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="gpt-architecture">GPT Architecture</h2>
-<section id="analogy" class="level3">
-<h3 class="anchored" data-anchor-id="analogy">Analogy</h3>
+<section id="gpt-architecture" class="level1 page-columns page-full">
+<h1>GPT Architecture</h1>
+<section id="an-analogy" class="level3">
+<h3 class="anchored" data-anchor-id="an-analogy">An Analogy</h3>
 <p>We want to teach a computer the English language (which consists of 50,257 words) so that it can communicate and aid in problem-solving. To begin, we translate each English word to the computer’s language equivalent (cat -&gt; [0, 0, 1]), but this is not very helpful because it’s impractical and can create meaningless sentences. It would be very difficult for a human to learn Spanish using only an English-to-Spanish translation book. Instead of a direct lookup, we can provide a description or set of ratings (an embedding) for each word. These descriptions/ratings are updated continuously as the computer understands more and more about the language.</p>
 <p>Understanding words is not enough to grasp a language; the way they are ordered is also important. For example, “the cat chased the mouse” has a very different meaning from “the mouse chased the cat”. In addition to providing a rating scheme for each word, we also include its position within the sentence.</p>
 <p>In order for the computer to understand the language and communicate, it must be able to determine which words are important and how they relate to other words in the sentence. For example, in the sentence “when she went to the bank, she saw a man,” the computer must be able to differentiate a financial institution from the side of a river, must reason that the two instances of “she” refer to the same person, and that the man was seen at the bank, not somewhere else.</p>
@@ -172,6 +179,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
+<section id="model-inputs" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="model-inputs">Model Inputs</h2>
 <section id="step-1-encoding" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-1-encoding">Step 1: Encoding</h3>
 
@@ -222,9 +231,12 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="step-3-positional-encodings" class="level3">
+<section id="step-3-positional-encodings" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-3-positional-encodings">Step 3: Positional Encodings</h3>
-<ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 Represent the order of words in a sentence to further model understanding of sentence meaning</p>
+</div></div><ul>
 <li>We need to take into account the syntax of the input sentence, which can affect the meaning of a sentence.
 <ul>
 <li>For example, “the tea is too hot, I am turning red” is different from “the tea is turning red, I am too hot.”</li>
@@ -269,9 +281,15 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="step-4-attention-single-head" class="level3">
+</section>
+<section id="transformer-block" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="transformer-block">Transformer Block</h2>
+<section id="step-4-attention-single-head" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-4-attention-single-head">Step 4: Attention (Single Head)</h3>
-<ul>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 Produce an attention matrix which determines how important each word is in relation to the others</p>
+</div></div><ul>
 <li>Determine how important each input token is in predicting the output.</li>
 <li>Each attention head processes a single sequence at a time.</li>
 <li>For each head, compute three linear projections to result in a query, key, and value projection. The resulting dimensions for each matrix are [batch size, sequence length, number of embeddings / number of heads].
@@ -318,19 +336,103 @@ ul.task-list li input[type="checkbox"] {
 <li>This is important because it’s the dimensions ([batch size, sequence length, embedding dimensions]) that the layers expect as input.</li>
 </ul></li>
 </ul>
+<p><strong>Step 5a: Residual Connection</strong></p>
+<ul>
+<li>The inputs to this layer are added (simple addition) to the resulting outputs
+<ul>
+<li>this helps the model retain information from earlier stages of the network and prevents vanishing gradients</li>
+</ul></li>
+</ul>
+<p><strong>Step 5b: Normalization</strong></p>
+<ul>
+<li>For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process</li>
+<li>In the Attention is All You Need paper, layer normalization occurs after each attention layer</li>
+<li>In GPT-2, layer normalization occurs before each self-attention layer in the transformer and after the final self-attention layer</li>
+</ul>
 </section>
-<section id="step-6-feed-forward" class="level3">
+<section id="step-6-feed-forward" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-6-feed-forward">Step 6: Feed Forward</h3>
-<section id="an-implementation-following-this-tutorial-can-be-found-here" class="level4">
-<h4 class="anchored" data-anchor-id="an-implementation-following-this-tutorial-can-be-found-here">An implementation following <a href="https://www.youtube.com/watch?v=l8pRSuU81PU&amp;t=4895s">this tutorial</a> can be found <a href="https://github.com/shannonrumsey/medGPT">here</a></h4>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 This is where the model learns complex patterns and relationships</p>
+</div></div><ul>
+<li>This is a multi-layer perceptron with one hidden layer</li>
+<li>Information (embeddings) flows from the input nodes, through the hidden nodes, to the output nodes</li>
+<li>Dimensions of inputs: [batch size, number of embeddings]</li>
+<li>Each sequence in the batch is multiplied by the weights matrix (not to be confused with the weights matrices query, key, and value used in attention) and combined with a learned bias term</li>
+<li>The sequence is then passed through an activation function to introduce non-linearity
+<ul>
+<li>non-linearity is important because it allows the network to model more complex patterns that cannot be captured by linear functions</li>
+</ul></li>
+<li>This process is repeated through the hidden layer to get the final result
+<ul>
+<li>The hidden layer starts with a larger matrix (typically four times the original size) to capture and learn a broader set of features and relationships from the data. However, after processing in the hidden layer, it is refined and reduced, often matching the input shape or desired output shape</li>
+</ul></li>
+<li>These types of neural networks are trained using backpropagation
+<ul>
+<li>Backpropagation calculates (updates) exactly how much each weight should change in order for the neural network to produce better predictions and reduce error
+<ul>
+<li>It starts at the last layer and moves up towards the first layer
+<ul>
+<li>At each layer, backpropagation calculates how much the output of the layer (called activation) contributed to the overall loss by finding the derivative (called gradient) of the loss with respect to the layer’s outputs.</li>
+<li>Based on the calculations, backpropagation calculates how much of each weight in the layer needs to be adjusted by finding the derivative (gradient) of the loss with respect to each weight.</li>
+<li>Only the activation gradient is passed backward to the previous layer and the process of calculating the weights gradient is repeated.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Step 6a: Residual Connection</strong></p>
+<ul>
+<li>The inputs to this layer are added (simple addition) to the resulting outputs
+<ul>
+<li>this helps the model retain information from earlier stages of the network and prevents vanishing gradients</li>
+</ul></li>
+</ul>
+<p><strong>Step 6b: Normalization</strong></p>
+<ul>
+<li>For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process</li>
+<li>In the Attention is All You Need paper, layer normalization occurs after each feed forward layer</li>
+<li>In GPT-2, layer normalization occurs before each feed forward layer in the transformer</li>
+</ul>
 </section>
+<section id="step-7-decoding" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="step-7-decoding">Step 7: Decoding</h3>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>💡 Turn vectors into words</p>
+</div></div><ul>
+<li>After each block (composed of self attention and feed forward) are repeated the desired number of times, we end up with a matrix [sequence length, number of embeddings]
+<ul>
+<li>Each position in the sequence length has an associated vector of embeddings that describes that particular position in the sequence</li>
+</ul></li>
+<li>In order to convert the matrix of vectors back into words, we reverse the embedding mapping
+<ul>
+<li>this is done using a linear transformation which gives us a score for each word in the vocabulary for each output position</li>
+<li>the weight matrix used in the linear transformation for generating vocabulary scores is the same (tied) as the weight matrix used in the embedding layer (at the very beginning of the model)
+<ul>
+<li>this ensures that the representations of tokens used in the model are consistent throughout the process</li>
+</ul></li>
+<li>the scores are converted into probabilities using softmax, where the probability represents how likely a word is the correct one for that position</li>
+</ul></li>
+<li>Top-k sampling can be used to determine the final word
+<ul>
+<li>the first k highest scored words are selected from the vocabulary</li>
+<li>a probability distribution of the k words is created based on their scores and the and we randomly sample one word from the distribution</li>
+</ul></li>
+</ul>
 <section id="references" class="level4">
 <h4 class="anchored" data-anchor-id="references">References</h4>
 <p><a href="https://dugas.ch/artificial_curiosity/GPT_architecture.html">The GPT-3 Architecture, on a Napkin</a></p>
 <p><a href="https://kazemnejad.com/blog/transformer_architecture_positional_encoding/">Transformer Architecture: The Positional Encoding</a></p>
 <p><a href="https://medium.com/mantisnlp/positional-encodings-i-main-approaches-bd1199d6770d">Positional Encodings: Main Approaches</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Feedforward_neural_network">Feed Forward Neural Networks</a></p>
+<p><a href="https://docs.cohere.com/docs/controlling-generation-with-top-k-top-p">Top k and Top p</a></p>
+</section>
+<section id="an-implementation-following-this-tutorial-can-be-found-here" class="level4">
+<h4 class="anchored" data-anchor-id="an-implementation-following-this-tutorial-can-be-found-here">An implementation following <a href="https://www.youtube.com/watch?v=l8pRSuU81PU&amp;t=4895s">this tutorial</a> can be found <a href="https://github.com/shannonrumsey/medGPT">here</a></h4>
 
 
+</section>
 </section>
 </section>
 </section>
