@@ -165,4 +165,4 @@ GPT models generate text by predicting one word at a time based on the input seq
 
 [Top k and Top p](https://docs.cohere.com/docs/controlling-generation-with-top-k-top-p)
 
-#### An implementation following [this tutorial](https://www.youtube.com/watch?v=l8pRSuU81PU&t=4895s) can be found [here](https://github.com/shannonrumsey/medGPT)
+#### A code implementation can be found [here](https://github.com/shannonrumsey/medGPT)
