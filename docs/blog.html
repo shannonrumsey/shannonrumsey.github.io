@@ -161,23 +161,15 @@ ul.task-list li input[type="checkbox"] {
 <h1>GPT Architecture</h1>
 <section id="an-analogy" class="level3">
 <h3 class="anchored" data-anchor-id="an-analogy">An Analogy</h3>
-<p>We want to teach a computer the English language (which consists of 50,257 words) so that it can communicate and aid in problem-solving. To begin, we translate each English word to the computer’s language equivalent (cat -&gt; [0, 0, 1]), but this is not very helpful because it’s impractical and can create meaningless sentences. It would be very difficult for a human to learn Spanish using only an English-to-Spanish translation book. Instead of a direct lookup, we can provide a description or set of ratings (an embedding) for each word. These descriptions/ratings are updated continuously as the computer understands more and more about the language.</p>
-<p>Understanding words is not enough to grasp a language; the way they are ordered is also important. For example, “the cat chased the mouse” has a very different meaning from “the mouse chased the cat”. In addition to providing a rating scheme for each word, we also include its position within the sentence.</p>
-<p>In order for the computer to understand the language and communicate, it must be able to determine which words are important and how they relate to other words in the sentence. For example, in the sentence “when she went to the bank, she saw a man,” the computer must be able to differentiate a financial institution from the side of a river, must reason that the two instances of “she” refer to the same person, and that the man was seen at the bank, not somewhere else.</p>
+<p>We want to teach a computer the English language (which consists of 50,257 words) so it can communicate and assist in problem-solving. To begin, we might translate each English word into a computer-friendly format (e.g., cat -&gt; [0, 0, 1]). However, this approach is not very helpful - it’s as impractical as trying to learn Spanish using only an English-to-Spanish translation book. Instead relying on direct translations, we can describe each word with a set of traits or ratings (known as embeddings). These descriptions are continuously updated as the computer learns more about the language.</p>
+<p>Since the order of words affects meaning (e.g., “The cat chased the dog” vs.&nbsp;“The dog chased the cat”), we must tell the model where each word occurs in the sentence. One way to do this is by assigning each word a unique position using mathematical patterns, such as sine and cosine waves.</p>
+<p>Imagine reading a sentence through different lenses. Each lens helps you focus on different aspects, such as relationships between subjects and objects, verb tense, or meaning. Multi-head attention does something similar by using multiple attention mechanisms in parallel to capture more complex relationships within the sentence.</p>
+<p>Once attention identifies which words are most important, a feed forward network processes each word in more detail. It’s as if, after focusing on key parts of the sentence, you go back and annotate each word with additional context to deepen your understanding.</p>
+<p>Finally, after the computer has gained a better understanding of the sentence, it translates its findings back into English.</p>
 </section>
 <section id="overview" class="level3">
 <h3 class="anchored" data-anchor-id="overview">Overview</h3>
-<ul>
-<li>GPT models take a sentence in and predict the next word (only produces one word/token at a time through the entire transformer!).
-<ul>
-<li>They do this by assigning probabilities to words it may be, and selecting the word with the highest probability.</li>
-<li>The input length will always be a certain number of words (e.g., GPT-3’s is 2048 words).
-<ul>
-<li>You can have a smaller input length; there will just be padding (empty values).</li>
-<li>You cannot have a larger input length.</li>
-</ul></li>
-</ul></li>
-</ul>
+<p>GPT models generate text by predicting one word at a time based on the input sequence. They do this by assigning probabilities to potential next words and selecting the one with the highest probability.The model processes an input sequence of a fixed length (e.g., 2048 words for GPT-3), though shorter sequences are padded, and longer sequences are not permitted.</p>
 </section>
 <section id="model-inputs" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="model-inputs">Model Inputs</h2>
@@ -185,47 +177,41 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="step-1-encoding">Step 1: Encoding</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 Turn words into vectors</p>
+<p>💡 Convert words into vectors</p>
 </div></div><ul>
-<li>There is a dictionary of all words. Each word is associated with a numeric value (e.g., GPT-2 has a vocab size of 50,257 words).
+<li>Words are mapped to numeric values, forming a vocabulary (e.g., GPT-2 has a vocabulary size of 50,257 words).
 <ul>
-<li>Cat = 1, Dog = 2, Car = 3, etc.</li>
+<li>Example: Cat = 1, Dog = 2, Car = 3, etc.</li>
 </ul></li>
-<li>For each word, we map them to the corresponding location in the vocab dictionary, turning them into a one-hot encoding vector of size 50,257.
+<li>Each word is expressed as a one-hot encoding vector (only zeros and ones) of size 50,257.
 <ul>
-<li>Cat would have the vector: [1, 0, 0, …, 0].</li>
-<li>Dog would have: [0, 1, 0, …, 0].</li>
-<li>Car would have: [0, 0, 1, …, 0].</li>
+<li>Example: Cat = [1, 0, 0, …, 0], Dog = [0, 1, 0, …, 0], Car = [0, 0, 1, …, 0].</li>
 </ul></li>
-<li>Putting these vectors together in a matrix, we end up with 2048 rows, representing the number of words/tokens in the input sequence, and 50,257 columns, representing the number of words in the dictionary. The row corresponds with the location in the sequence and the column represents the location in the dictionary.
-<ul>
-<li>The matrix is 2048 x 50,257 and is made up of only 0s and 1s.</li>
-</ul></li>
+<li>Combining these vectors into a matrix, we end up with 2048 rows, each correpsonding to a token in the sequence, and 50,257 columns, each corresponding to a word in the dictionary.</li>
 </ul>
 </section>
 <section id="step-2-token-embedding-optimize-storing-word-informationmeaning" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-2-token-embedding-optimize-storing-word-informationmeaning">Step 2: Token Embedding: Optimize Storing Word Information/Meaning</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 Having so many empty (zeroes) slots in the matrix takes up too much unnecessary space</p>
+<p>💡 Optimize storage and representation of word information</p>
 </div></div><ul>
 <li>Preserve semantic meaning of words in an optimal way using embedding functions.
 <ul>
-<li>We want to project this large one-hot encoded matrix to a smaller, dense vector space.
+<li>One-hot encoding is sparse and inefficient.</li>
+<li>We use embedding functions to project these vectors into a smaller, dense vector space.
 <ul>
-<li>We initialize an embedding matrix with dimensions [vocab_size, embedding_dim].
+<li>Initialize an embedding matrix with dimensions [vocab size, num embedding].
 <ul>
-<li>Vocab size is 50,257 and embedding dim is the desired number of traits we want.</li>
+<li>Vocab size = 50,257, num embedding = the desired number of traits we want.</li>
 </ul></li>
-<li>Each one-hot vector in the matrix is mapped to this dense embedding vector (via multiplication).
+<li>Each one-hot vector is mapped to a dense embedding vector (via multiplication).
 <ul>
-<li>This is called the embedding function.</li>
-<li>This results in an embedding vector of size [1, embedding_dim] for each word in the dictionary.</li>
+<li>This results in an embedding vector of size [1, num embedding] for each word in the dictionary.</li>
 </ul></li>
 <li>Each element in the embedding represents a learned trait of the word.
 <ul>
-<li>i.e., Dog may have the vector embedding [energetic = 10, cute = 10], whereas car has [energetic = 8, cute = 0].</li>
-<li>This is a better way of storing the data because it provides more semantic information and is in a lower dimension.</li>
+<li>Example: Dog might have an embedding embedding [energetic = 10, cute = 10], while Car has [energetic = 8, cute = 0].</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -235,47 +221,37 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="step-3-positional-encodings">Step 3: Positional Encodings</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 Represent the order of words in a sentence to further model understanding of sentence meaning</p>
+<p>💡 Incorporate word order to enhance understanding of sentence meaning</p>
 </div></div><ul>
-<li>We need to take into account the syntax of the input sentence, which can affect the meaning of a sentence.
+<li>To model syntax and word order, we need positional embeddings.
 <ul>
-<li>For example, “the tea is too hot, I am turning red” is different from “the tea is turning red, I am too hot.”</li>
+<li>Example: “Is the tea hot” differs from “The tea is hot”.</li>
 </ul></li>
-<li>We have two options for learning position embeddings:
+<li>Two methods for positional encodings:
 <ul>
-<li>Encode the position of the current token using sinusoidal functions with differing frequencies (Used in <em>Attention is All You Need</em>).
+<li>Sinusoidal Functions (Used in <em>Attention is All You Need</em>).
 <ul>
-<li>These are absolute/universal embeddings.
+<li>Encode positions using sine and cosine functions with different frequencies.
 <ul>
-<li>Each position is represented with a fixed vector that is consistent across different sequences/sentences.
-<ul>
-<li>The vector for the 5th position in one sentence is the same in all other sentences.</li>
-</ul></li>
-</ul></li>
-<li>We can represent the location number of a word in binary form, but it is more space-efficient to represent them using sinusoidal functions.</li>
 <li>The frequency of the wave is tied to which bits we are representing.
 <ul>
 <li>A higher frequency allows us to represent the numbers 0-3. A lower frequency allows us to represent the numbers 4-15.</li>
-<li>We are able to do this because the lowest bit alternates on every number, the second on every two numbers, etc. We line up the length of the sine/cosine wave’s cycle with the bits we want to represent.</li>
 </ul></li>
 </ul></li>
-<li>Trained/Learned Positional Embeddings (Used in GPT-2).
+<li>Each position is represented by a fixed vector that is consistent across different sequences/sentences. - The vector for the 5th position in one sentence is the same in all other sentences.</li>
+</ul></li>
+<li>Learned Positional Embeddings (Used in GPT-2).
 <ul>
-<li>Relative positions of words.
-<ul>
+<li>Learn position-specific embeddings during backpropagation.</li>
 <li>The position of words in a given sentence; not universal across all sentences.</li>
-</ul></li>
-<li>Initialize a matrix with dimensions [max_positions, embedding_dim].
+<li>Initialize a matrix with dimensions [input length, num embedding].
 <ul>
-<li>What the matrix is filled with at initialization can vary. PyTorch’s “nn.Embedding” will randomly sample values from a standard normal distribution.</li>
-<li>Max_positions is the maximum sequence length that the model can expect (2048 words).</li>
-<li>Embedding_dim must be the same number used for the token embeddings because they will be summed together to form the official input of the model.</li>
+<li>input length = the maximum sequence length that the model can expect (2048 words).</li>
+<li>num embedding must be the same number used for the token embeddings because they will be summed together to form the official input of the model.</li>
 </ul></li>
-<li>During training, the position in the input sequence is mapped to its corresponding row in the matrix.
+<li>What the matrix is filled with at initialization can vary.
 <ul>
-<li>The second position in a sequence is the second row in the matrix.</li>
-<li>Embeddings are learned during backpropagation and are adjusted to minimize the loss function.</li>
-<li>In the forward pass, these learned positional embeddings are added to token embeddings.</li>
+<li>PyTorch’s “nn.Embedding” will randomly sample values from a standard normal distribution.</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -288,136 +264,103 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="step-4-attention-single-head">Step 4: Attention (Single Head)</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 Produce an attention matrix which determines how important each word is in relation to the others</p>
+<p>💡 Determine the relevance of each word in the context of others</p>
 </div></div><ul>
-<li>Determine how important each input token is in predicting the output.</li>
-<li>Each attention head processes a single sequence at a time.</li>
-<li>For each head, compute three linear projections to result in a query, key, and value projection. The resulting dimensions for each matrix are [batch size, sequence length, number of embeddings / number of heads].
+<li>Attention mechanisms evalulate the importance of each input token for predicting the output.</li>
+<li>Each attention head processes a single word of the sequence at a time.</li>
+<li>Each head computes three linear projections (query, key, and value) for each word
 <ul>
-<li>Linear projection: y = Wx + b.
+<li>The resulting dimensions for each matrix are [batch size, input length, num embedding / number of heads].</li>
+<li>Linear projection formula: y = Wx + b.
 <ul>
-<li>y is the resulting projection (query, key, and value).</li>
-<li>W is the matrix of weights.
-<ul>
-<li>The first weights matrix is query, the second for key, and the third for value.</li>
-</ul></li>
-<li>x is the input.
-<ul>
-<li>This is the summed positional embeddings and token embeddings.</li>
-</ul></li>
-<li>b is the bias.</li>
-</ul></li>
-<li>Queries are the task/meaning of interest.</li>
-<li>Keys find relevant information based on the task.</li>
-<li>Values are the actual information from the tokens.</li>
-</ul></li>
-<li>The linear projection/transformation gives us 3 new projection matrices: queries, keys, and values.
-<ul>
-<li>The query and key (transposed) matrices are multiplied together and normalized through softmax (this turns raw scores into attention weights).
-<ul>
-<li>Determines tokens most relevant to queries.</li>
-<li>For example, in “the cat that chased the dog was tired,” “the cat” and “was tired” are related despite there being words in between.</li>
-</ul></li>
-<li>This new matrix is multiplied by the values matrix.
-<ul>
-<li>Provides information about tokens of interest.</li>
-<li>The final resulting matrix is [batch size, sequence length, number of embeddings].</li>
+<li>y = projection (query, key, and value).</li>
+<li>W = weight matrix (distinct for query, key, and value).</li>
+<li>x = input (sum of positional and token embeddings).</li>
+<li>b = bias term.</li>
 </ul></li>
 </ul></li>
+<li>Queries represent the task of interest.</li>
+<li>Keys find relevant information, and values provide the actual token information.</li>
+<li>The query and key matrices are multiplied and normalized through softmax to produce attention weights, which determine tokens most relevant to queries. - Example: In “the cat that chased the dog was tired,” “the cat” and “was tired” are related despite intermediate words.</li>
+<li>The resulting attention weights are applied to the values matrix to gather relevant information about tokens.</li>
+<li>The final resulting matrix is [batch size, input length, num embedding].</li>
 </ul>
 </section>
 <section id="step-5-multi-head-attention" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-multi-head-attention">Step 5: Multi-head Attention</h3>
 <ul>
-<li>The process in step 4 is repeated multiple times (because of multiple heads).</li>
-<li>The results from each attention head are concatenated together.</li>
-<li>A final linear transformation is applied to project the outputs back to the original embedding dimension.
+<li>The attention process is repeated across multiple heads.</li>
+<li>Results from each head are concatenated and transfromed linearly to match the original embedding dimension.
 <ul>
-<li>This is important because it’s the dimensions ([batch size, sequence length, embedding dimensions]) that the layers expect as input.</li>
+<li>Ensures consistent dimensions ([batch size, input length, num embedding]).</li>
 </ul></li>
 </ul>
 <p><strong>Step 5a: Residual Connection</strong></p>
 <ul>
-<li>The inputs to this layer are added (simple addition) to the resulting outputs
+<li>Add the original input to the attention output.
 <ul>
-<li>this helps the model retain information from earlier stages of the network and prevents vanishing gradients</li>
+<li>Helps retain early-stage information and prevents vanishing gradients.</li>
 </ul></li>
 </ul>
 <p><strong>Step 5b: Normalization</strong></p>
 <ul>
-<li>For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process</li>
-<li>In the Attention is All You Need paper, layer normalization occurs after each attention layer</li>
-<li>In GPT-2, layer normalization occurs before each self-attention layer in the transformer and after the final self-attention layer</li>
+<li>Normalize features for each token to have a mean of 0 and variance of 1 to stabilize training.</li>
+<li>Layer normalization occurs after each attention layer in <em>Attention is All You Need</em>, while GPT-2 places it before each self-attention layer and after the final self-attention layer.</li>
 </ul>
 </section>
 <section id="step-6-feed-forward" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-6-feed-forward">Step 6: Feed Forward</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 This is where the model learns complex patterns and relationships</p>
+<p>💡 Learn complex patterns and relationships</p>
 </div></div><ul>
-<li>This is a multi-layer perceptron with one hidden layer</li>
-<li>Information (embeddings) flows from the input nodes, through the hidden nodes, to the output nodes</li>
-<li>Dimensions of inputs: [batch size, number of embeddings]</li>
-<li>Each sequence in the batch is multiplied by the weights matrix (not to be confused with the weights matrices query, key, and value used in attention) and combined with a learned bias term</li>
-<li>The sequence is then passed through an activation function to introduce non-linearity
+<li>A multi-layer perceptron with one hidden layer.</li>
+<li>Processes inputs through hidden nodes to the output nodes.</li>
+<li>Dimensions: [batch size, num embedding].</li>
+<li>Each sequence is multiplied by a weight matrix and bias term (not to be confused with the weights matrices query, key, and value used in attention), then passed through an activation function to introduce non-linearity.
 <ul>
-<li>non-linearity is important because it allows the network to model more complex patterns that cannot be captured by linear functions</li>
+<li>Non-linearity allows the network to model more complex patterns that cannot be captured by linear functions.</li>
 </ul></li>
-<li>This process is repeated through the hidden layer to get the final result
+<li>The hidden layer often starts with a larger matrix (typically four times the original size) to capture more features, then is reduced to the original output size.</li>
+<li>Uses backpropagation for training.
 <ul>
-<li>The hidden layer starts with a larger matrix (typically four times the original size) to capture and learn a broader set of features and relationships from the data. However, after processing in the hidden layer, it is refined and reduced, often matching the input shape or desired output shape</li>
-</ul></li>
-<li>These types of neural networks are trained using backpropagation
-<ul>
-<li>Backpropagation calculates (updates) exactly how much each weight should change in order for the neural network to produce better predictions and reduce error
-<ul>
-<li>It starts at the last layer and moves up towards the first layer
+<li>Backpropagation updates weights to produce better predictions and reduce error.
 <ul>
 <li>At each layer, backpropagation calculates how much the output of the layer (called activation) contributed to the overall loss by finding the derivative (called gradient) of the loss with respect to the layer’s outputs.</li>
 <li>Based on the calculations, backpropagation calculates how much of each weight in the layer needs to be adjusted by finding the derivative (gradient) of the loss with respect to each weight.</li>
 <li>Only the activation gradient is passed backward to the previous layer and the process of calculating the weights gradient is repeated.</li>
 </ul></li>
 </ul></li>
+</ul>
+<p><strong>Step 5a: Residual Connection</strong></p>
+<ul>
+<li>Add the original input to the attention output.
+<ul>
+<li>Helps retain early-stage information and prevents vanishing gradients.</li>
 </ul></li>
 </ul>
-<p><strong>Step 6a: Residual Connection</strong></p>
+<p><strong>Step 5b: Normalization</strong></p>
 <ul>
-<li>The inputs to this layer are added (simple addition) to the resulting outputs
-<ul>
-<li>this helps the model retain information from earlier stages of the network and prevents vanishing gradients</li>
-</ul></li>
-</ul>
-<p><strong>Step 6b: Normalization</strong></p>
-<ul>
-<li>For each token in a sequence, we calculate the mean and variance across its features and normalize them so that the features have a mean of 0 and a variance of 1. By doing this, we are able to stabilize the training process</li>
-<li>In the Attention is All You Need paper, layer normalization occurs after each feed forward layer</li>
-<li>In GPT-2, layer normalization occurs before each feed forward layer in the transformer</li>
+<li>Normalize features for each token to have a mean of 0 and variance of 1 to stabilize training.</li>
+<li>Layer normalization occurs after each feed-forward layer in <em>Attention is All You Need</em>, while GPT-2 places it before each feed-forward layer.</li>
 </ul>
 </section>
 <section id="step-7-decoding" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="step-7-decoding">Step 7: Decoding</h3>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>💡 Turn vectors into words</p>
+<p>💡 Convert vectors back into words</p>
 </div></div><ul>
-<li>After each block (composed of self attention and feed forward) are repeated the desired number of times, we end up with a matrix [sequence length, number of embeddings]
+<li>After processing through all blocks, the final output is a matrix [sequence length, num embeddings].</li>
+<li>Convert the matrix of vectors back into words using a linear transformation that scores each vocabulary word.
 <ul>
-<li>Each position in the sequence length has an associated vector of embeddings that describes that particular position in the sequence</li>
+<li>the weight matrix for this transformation is tied to the embedding layer to ensure that the representation of tokens is consistent throughout the process.</li>
+<li>Scores are converted to probabilities using softmax.</li>
 </ul></li>
-<li>In order to convert the matrix of vectors back into words, we reverse the embedding mapping
+<li>Top-k sampling can be used to determine the output.
 <ul>
-<li>this is done using a linear transformation which gives us a score for each word in the vocabulary for each output position</li>
-<li>the weight matrix used in the linear transformation for generating vocabulary scores is the same (tied) as the weight matrix used in the embedding layer (at the very beginning of the model)
-<ul>
-<li>this ensures that the representations of tokens used in the model are consistent throughout the process</li>
-</ul></li>
-<li>the scores are converted into probabilities using softmax, where the probability represents how likely a word is the correct one for that position</li>
-</ul></li>
-<li>Top-k sampling can be used to determine the final word
-<ul>
-<li>the first k highest scored words are selected from the vocabulary</li>
-<li>a probability distribution of the k words is created based on their scores and the and we randomly sample one word from the distribution</li>
+<li>Select the top k words based on scores.</li>
+<li>Create probability distribution based on scores and randomly sample one word.</li>
 </ul></li>
 </ul>
 <section id="references" class="level4">
