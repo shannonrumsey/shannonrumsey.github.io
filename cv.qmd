@@ -7,6 +7,8 @@ about:
 
 ### Education
 
+University of California, Santa Cruz \| M.S. in Natural Language Processing (Present)
+
 University of California, Santa Barbara \| B.S. in Statistics and Data Science, GPA: 3.63 (2021 - 2023)
 
 Santa Barbara City College \| A.A. in Liberal Arts-Science: Science & Math, GPA: 3.86 (2019 - 2021)
@@ -47,15 +49,17 @@ As part of a cohort, I led outreach programs aimed at inspiring students and pro
 
 ### Other Endeavors
 
-#### Independent Researcher
+#### Medical Transcription Simplification Using BERT
 
-UC Santa Barbara (April 2023 - June 2023)
+April 2023 - June 2023
 
 Using synonym replacement and text summarization, my team and I explored the methodology of medical transcription simplification and set out to define readability of documents. Our results indicated that our synonym replacement and summarization were successful in increasing the readability of medical transcriptions by reducing the Flesch-Kincaid metric, effectively democratizing information contained in these transcriptions. This project took on two phases: synonym simplification and summarization. In the first phase, we computed cosine similarities between BioBert embeddings derived from Harvard Health medical definitions and context dependent terminology found in the transcriptions to discover synonym substitutions. The second phase employed Bert2Bert to summarize and further refine the overall documents.
 
 [Abstract](medical_transcription_simplification.pdf){.btn .btn-secondary role="button"}
 
-#### Independent Researcher (September 2022 - December 2022)
+#### Yelp Classification Modeling
+
+September 2022 - December 2022
 
 Written in the style of a follow-along blog post, I set out to assess the relationship between geographic attributes of a food-related business and their reviews. Referencing the Bing Sentiment Lexicon in R, I extracted text dependent information that encapsulated how reviewers felt beyond their star ratings. After extensive data collection on both the businesses and reviews, I trained 4 machine learning methods to identify key predictors for defining a business's location within the Santa Barbara county. The number of reviews, review ratings, and votes on reviews proved to be the most important factors in a business's rating, illuminating both the importance of business location but also the pitfalls of star ratings derived from averages.
 
