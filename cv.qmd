@@ -17,7 +17,7 @@ Santa Barbara City College \| A.A. in Liberal Arts-Science: Science & Math, GPA:
 
 **Programming:** Python, R, SAS, SQL
 
-**Computational Linguistics (Python):** Neural Networks (DNN, RNN, LSTM), Sentiment Analysis, Natural Language Processing, Distributional Semantics, Automatic Summarization
+**NLP (Python):** Neural Networks, Deep Learning, Machine Translation, Sentiment Analysis, Model building in PyTorch
 
 **Statistics and Data Science (Python & R):** Data Imputation Methods, Regression Analysis, Bayesian Data Analysis, Survival Analysis, Non-parametric Methods
 
@@ -48,6 +48,29 @@ As part of a cohort, I led outreach programs aimed at inspiring students and pro
 [CCDSP Profile](https://centralcoastdatascience.org/people/fellows/shannon-rumsey){.btn .btn-secondary role="button"}
 
 ### Other Endeavors
+
+#### Penn Treebank Model Generation
+
+A decoder-only language model is created to generate sentences from the Penn Treebank dataset. This model achieves a perplexity of 269, compared to GPT-2 which gets around 65.
+
+[Report](ptb_generation.pdf){.btn .btn-secondary role="button"}
+
+#### IOB Slot Tagging for Move Relations
+
+October 2024 - November 2024
+
+This is a continuation of the previous project and addresses IOB slot tag classification using two sequential models: A bidirectional LSTM and its simpler counterpart, the bidirectional GRU model. The hyperparameters of the two models are tailored in such a way to get better validation loss and F1 scores.
+
+[Report](iob_tagging.pdf){.btn .btn-secondary role="button"}
+
+#### Movie Relation Classification
+
+September 2024 - October 2024
+
+Feature engineering and hyperparameter tuning play a crucial role in machine learning algorithms. In constructing a model to predict relations for a given movie-related utterance, feature engineering proved to be an effective method for improving accuracy. The usage of dense vector embeddings, batch data processing, data shuffling, and data resampling increased validation accuracy by 3%. Hyperparameter tuning, such as increasing the learning rate and decreasing regularization, boosted validation accuracy to 96% and test accuracy to 81%.
+
+[Report](mlp_classification.pdf){.btn .btn-secondary role="button"}
+
 
 #### Medical Transcription Simplification Using BERT
 
