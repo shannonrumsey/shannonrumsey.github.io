@@ -48,6 +48,11 @@ As part of a cohort, I led outreach programs aimed at inspiring students and pro
 [CCDSP Profile](https://centralcoastdatascience.org/people/fellows/shannon-rumsey){.btn .btn-secondary role="button"}
 
 ### Other Endeavors
+#### Entity Aware Machine Translation
+
+To mitigate the effects that a named entity can have during translation, a named entity translation lookup was implemented, paired with code-switching to reintegrate the translated entity back into the original source sentence. The modified sentence, containing the translated entity, was then processed by a translation model. Using a Seq2Seq and Transformer model, the approach achieved COMET scores of 63 and 68, respectively, with the Transformer model outperforming mBart. These findings will be submitted to the SemEval 2025 workshop.
+
+[Report](Entity_Aware_Machine_Translation.pdf){.btn .btn-secondary role="button"}
 
 #### Penn Treebank Model Generation
 
